@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Einstein's Field Equations",
+    "description": "The fundamental equations of general relativity relating spacetime curvature (left side) to the distribution of mass and energy (right side). Rμν is the Ricci curvature tensor, gμν is the metric tensor, R is the curvature scalar, and Tμν is the energy-momentum tensor",
+    "latex": "R_{\\mu\\nu} - \\frac{1}{2}g_{\\mu\\nu}R = -\\frac{8\\pi G}{c^4}T_{\\mu\\nu}",
+    "reference": "Equation 3.1"
+  },
+  {
+    "name": "Schwarzschild Metric",
+    "description": "The metric describing spacetime in the vacuum region surrounding a spherically symmetric, non-rotating mass M. This is the first exact solution to Einstein's field equations",
+    "latex": "\\mathrm{d}s^2 = \\left(1 - \\frac{2GM}{c^2r}\\right)c^2\\mathrm{d}t^2 - \\left(1 - \\frac{2GM}{c^2r}\\right)^{-1}\\mathrm{d}r^2 - r^2\\mathrm{d}\\theta^2 - r^2\\sin^2\\theta\\,\\mathrm{d}\\phi^2",
+    "reference": "Equation 3.2"
+  },
+  {
+    "name": "Schwarzschild Radius",
+    "description": "The radius at which the Schwarzschild metric becomes singular, defining the event horizon of a non-rotating black hole. For objects denser than this radius, escape requires speeds greater than c",
+    "latex": "R_S = \\frac{2GM}{c^2}",
+    "reference": "Equation 3.3"
+  },
+  {
+    "name": "Escape Energy Condition",
+    "description": "The condition for an object of mass m to escape from the gravitational influence of a body of mass M and radius R: kinetic energy must equal gravitational potential energy",
+    "latex": "\\frac{1}{2}mv_{\\text{esc}}^2 = \\frac{GMm}{R}",
+    "reference": "Equation 3.4"
+  },
+  {
+    "name": "Escape Speed",
+    "description": "The minimum speed required for an object to escape from the gravitational field of a spherical body of mass M and radius R",
+    "latex": "v_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}",
+    "reference": "Equation 3.5"
+  },
+  {
+    "name": "Proper Time to Singularity",
+    "description": "The proper time interval for a body following a radial path to travel from the event horizon to the central singularity of a black hole",
+    "latex": "\\mathrm{d}\\tau_{\\text{sing}} = \\frac{2}{3}\\frac{R_S}{c}",
+    "reference": "Equation 3.6"
+  },
+  {
+    "name": "Light Travel Time in Schwarzschild Spacetime",
+    "description": "The coordinate time interval for a photon to travel radially from r₁ to r₂ in Schwarzschild spacetime. As r₁ approaches RS, this time tends to infinity for a distant observer",
+    "latex": "t_2 - t_1 = \\frac{r_2 - r_1}{c} + \\frac{R_S}{c}\\ln\\left(\\frac{r_2 - R_S}{r_1 - R_S}\\right)",
+    "reference": "Equation 3.7"
+  },
+  {
+    "name": "Gravitational Redshift",
+    "description": "The relationship between the frequency of light emitted at distance rem from a mass M and the frequency observed at large distance. Light escaping from near a massive object is redshifted",
+    "latex": "\\nu_\\infty = \\nu_{\\text{em}}\\left(1 - \\frac{2GM}{c^2r_{\\text{em}}}\\right)^{1/2}",
+    "reference": "Equation 3.8"
+  },
+  {
+    "name": "Flat Expanding Spacetime Metric",
+    "description": "The metric for an expanding Universe with flat (k=0) spatial geometry, where a(t) is the scale factor and (r, θ, φ) are co-moving spherical coordinates",
+    "latex": "\\mathrm{d}s^2 = c^2\\mathrm{d}t^2 - a^2(t)\\left(\\mathrm{d}r^2 + r^2\\mathrm{d}\\theta^2 + r^2\\sin^2\\theta\\,\\mathrm{d}\\phi^2\\right)",
+    "reference": "Equation 3.9"
+  },
+  {
+    "name": "Robertson-Walker Metric",
+    "description": "The general metric describing a homogeneous and isotropic expanding Universe, where a(t) is the scale factor and k is the spatial curvature parameter (k=0 flat, k>0 positive curvature, k<0 negative curvature)",
+    "latex": "\\mathrm{d}s^2 = c^2\\mathrm{d}t^2 - a^2(t)\\left(\\frac{\\mathrm{d}r^2}{1-kr^2} + r^2\\mathrm{d}\\theta^2 + r^2\\sin^2\\theta\\,\\mathrm{d}\\phi^2\\right)",
+    "reference": "Equation 3.10"
+  },
+  {
+    "name": "Hubble Constant Definition",
+    "description": "The Hubble constant H₀ is the present-day value of the expansion rate of the Universe, defined as the time derivative of the scale factor divided by the scale factor, evaluated at the present time t₀",
+    "latex": "H_0 = \\frac{1}{a(t_0)}\\frac{\\mathrm{d}a}{\\mathrm{d}t}(t_0) = \\frac{\\dot{a}(t_0)}{a(t_0)}",
+    "reference": "Equation 3.11"
+  },
+  {
+    "name": "Hubble Parameter",
+    "description": "The general Hubble parameter H(t) describes the expansion rate of the Universe at any cosmic time t. A dot denotes the time derivative",
+    "latex": "H(t) = \\frac{\\dot{a}}{a}",
+    "reference": "Equation 3.12"
+  },
+  {
+    "name": "Redshift Definition",
+    "description": "The cosmological redshift z is defined in terms of the ratio of observed to emitted wavelengths (or equivalently, emitted to observed frequencies)",
+    "latex": "1 + z = \\frac{\\lambda_{\\text{obs}}}{\\lambda_{\\text{em}}} = \\frac{\\nu_{\\text{em}}}{\\nu_{\\text{obs}}}",
+    "reference": "Equation 3.13"
+  },
+  {
+    "name": "Wavefront Time Interval Relation",
+    "description": "The relationship between time intervals at emission and observation for successive wavefronts of light in an expanding Universe. This is the key step in deriving the scale factor-redshift relation",
+    "latex": "\\frac{\\Delta t_{\\text{em}}}{a(t_{\\text{em}})} = \\frac{\\Delta t_{\\text{obs}}}{a(t_{\\text{obs}})}",
+    "reference": "Equation 3.14"
+  },
+  {
+    "name": "Scale Factor-Redshift Relation",
+    "description": "The fundamental relationship between the cosmic scale factor a and redshift z. The redshift of a distant galaxy tells us how much smaller the scale factor was when the light was emitted. Conventionally a(t₀)=1",
+    "latex": "a \\propto \\frac{1}{1+z}",
+    "reference": "Equation 3.15"
+  },
+  {
+    "name": "Schwarzschild Metric (RS form)",
+    "description": "The Schwarzschild metric written in terms of the Schwarzschild radius RS, useful for analyzing behavior near black holes",
+    "latex": "\\mathrm{d}s^2 = \\left(1 - \\frac{R_S}{r}\\right)c^2\\mathrm{d}t^2 - \\left(1 - \\frac{R_S}{r}\\right)^{-1}\\mathrm{d}r^2 - r^2\\mathrm{d}\\theta^2 - r^2\\sin^2\\theta\\,\\mathrm{d}\\phi^2",
+    "reference": "Example 3.1"
+  },
+  {
+    "name": "Minkowski Metric (Spherical Coordinates)",
+    "description": "The flat spacetime Minkowski metric expressed in spherical coordinates. This is the limit of the Schwarzschild metric at large distances (r >> RS) from a mass",
+    "latex": "\\mathrm{d}s^2 = c^2\\mathrm{d}t^2 - \\mathrm{d}r^2 - r^2\\mathrm{d}\\theta^2 - r^2\\sin^2\\theta\\,\\mathrm{d}\\phi^2",
+    "reference": "Example 3.1"
+  }
+]

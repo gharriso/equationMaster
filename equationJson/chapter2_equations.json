@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Lorentz Transformation (x-coordinate)",
+    "description": "Transforms the x-coordinate between two inertial reference frames S and S' moving at relative velocity V along the x-axis",
+    "latex": "x' = \\gamma(x - Vt)",
+    "reference": "Equation 2.1"
+  },
+  {
+    "name": "Lorentz Transformation (y-coordinate)",
+    "description": "The y-coordinate remains unchanged between inertial reference frames (motion is along x-axis)",
+    "latex": "y' = y",
+    "reference": "Equation 2.2"
+  },
+  {
+    "name": "Lorentz Transformation (z-coordinate)",
+    "description": "The z-coordinate remains unchanged between inertial reference frames (motion is along x-axis)",
+    "latex": "z' = z",
+    "reference": "Equation 2.3"
+  },
+  {
+    "name": "Lorentz Transformation (time)",
+    "description": "Transforms the time coordinate between two inertial reference frames, showing that time is not absolute but depends on both the time and position in the original frame",
+    "latex": "t' = \\gamma\\left(t - \\frac{Vx}{c^2}\\right)",
+    "reference": "Equation 2.4"
+  },
+  {
+    "name": "Lorentz Factor",
+    "description": "The Lorentz factor γ depends on the relative speed V between reference frames and approaches infinity as V approaches c",
+    "latex": "\\gamma = \\frac{1}{\\sqrt{1 - V^2/c^2}}",
+    "reference": "Equation 2.5"
+  },
+  {
+    "name": "Lorentz Transformation for Space Intervals",
+    "description": "Transforms spatial intervals between reference frames, relating the separation Δx' in frame S' to intervals Δx and Δt in frame S",
+    "latex": "\\Delta x' = \\gamma(\\Delta x - V\\Delta t)",
+    "reference": "Equation 2.6"
+  },
+  {
+    "name": "Lorentz Transformation for Time Intervals",
+    "description": "Transforms time intervals between reference frames, showing how Δt' in frame S' depends on both spatial and temporal intervals in frame S",
+    "latex": "\\Delta t' = \\gamma\\left(\\Delta t - \\frac{V\\Delta x}{c^2}\\right)",
+    "reference": "Equation 2.7"
+  },
+  {
+    "name": "Time Dilation",
+    "description": "For two events at the same location in frame S' (Δx' = 0), the time interval measured by an observer in frame S is longer by a factor of γ. This is the 'moving clocks run slow' effect",
+    "latex": "\\Delta t = \\gamma \\Delta t'",
+    "reference": "Equation 2.8"
+  },
+  {
+    "name": "Line Element (2D Cartesian)",
+    "description": "The infinitesimal distance element in two-dimensional Cartesian coordinates, based on Pythagoras' theorem",
+    "latex": "\\mathrm{d}l^2 = \\mathrm{d}x^2 + \\mathrm{d}y^2",
+    "reference": "Equation 2.9"
+  },
+  {
+    "name": "Line Element (2D Polar)",
+    "description": "The infinitesimal distance element in two-dimensional plane polar coordinates (r, θ)",
+    "latex": "\\mathrm{d}l^2 = \\mathrm{d}r^2 + r^2 \\mathrm{d}\\theta^2",
+    "reference": "Equation 2.10"
+  },
+  {
+    "name": "Spacetime Separation (Finite Intervals)",
+    "description": "The spacetime separation Δs between two events, which is invariant under Lorentz transformations. The negative signs on spatial terms ensure invariance",
+    "latex": "\\Delta s^2 = (c\\Delta t)^2 - \\Delta x^2 - \\Delta y^2 - \\Delta z^2",
+    "reference": "Equation 2.11"
+  },
+  {
+    "name": "Minkowski Metric",
+    "description": "The metric for flat spacetime describing infinitesimal spacetime separations. This is the fundamental metric of special relativity",
+    "latex": "\\mathrm{d}s^2 = (c\\,\\mathrm{d}t)^2 - \\mathrm{d}x^2 - \\mathrm{d}y^2 - \\mathrm{d}z^2",
+    "reference": "Equation 2.12"
+  },
+  {
+    "name": "Metric Tensor Form",
+    "description": "General expression for the spacetime interval using the metric tensor gμν and coordinate differentials. For 4D spacetime, indices run from 0 to 3",
+    "latex": "\\mathrm{d}s^2 = \\sum_{\\mu,\\nu=i}^{n} g_{\\mu\\nu} \\,\\mathrm{d}x^\\mu \\mathrm{d}x^\\nu",
+    "reference": "Equation 2.13"
+  },
+  {
+    "name": "Minkowski Metric Tensor",
+    "description": "The metric tensor for Minkowski (flat) spacetime expressed as a 4×4 matrix with diagonal elements (1, -1, -1, -1)",
+    "latex": "g_{\\mu\\nu} = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & -1 & 0 & 0 \\\\ 0 & 0 & -1 & 0 \\\\ 0 & 0 & 0 & -1 \\end{pmatrix}",
+    "reference": "Equation 2.14"
+  },
+  {
+    "name": "Line Element (3D Spherical Coordinates)",
+    "description": "The infinitesimal distance element in three-dimensional spherical coordinates (r, θ, φ)",
+    "latex": "\\mathrm{d}l^2 = \\mathrm{d}r^2 + r^2\\mathrm{d}\\theta^2 + r^2\\sin^2\\theta\\,\\mathrm{d}\\phi^2",
+    "reference": "Equation 2.15"
+  },
+  {
+    "name": "Metric for Surface of a Sphere",
+    "description": "The 2D metric describing the surface of a sphere of radius R, where r = R is constant. This is a curved geometry",
+    "latex": "\\mathrm{d}l^2 = R^2\\mathrm{d}\\theta^2 + R^2\\sin^2\\theta\\,\\mathrm{d}\\phi^2",
+    "reference": "Equation 2.16"
+  },
+  {
+    "name": "Curvature of a Line",
+    "description": "The curvature at a point x on a curved line is the inverse of the radius of a circle that best approximates the curve at that location",
+    "latex": "k_x = \\frac{1}{R_x}",
+    "reference": "Equation 2.17"
+  },
+  {
+    "name": "Intrinsic Curvature (2D General Form)",
+    "description": "General expression for intrinsic curvature K in a two-dimensional space in terms of metric coefficients g₁₁ and g₂₂ and their derivatives",
+    "latex": "\\mathcal{K} = \\frac{1}{4g_{11}g_{22}}\\left[\\frac{1}{g_{11}}\\frac{\\mathrm{d}g_{11}}{\\mathrm{d}x^1}\\frac{\\mathrm{d}g_{22}}{\\mathrm{d}x^1} + \\frac{1}{g_{22}}\\frac{\\mathrm{d}g_{11}}{\\mathrm{d}x^2}\\frac{\\mathrm{d}g_{22}}{\\mathrm{d}x^2} + \\frac{1}{g_{11}}\\left(\\frac{\\mathrm{d}g_{11}}{\\mathrm{d}x^2}\\right)^2 + \\frac{1}{g_{22}}\\left(\\frac{\\mathrm{d}g_{22}}{\\mathrm{d}x^1}\\right)^2\\right] - \\frac{1}{2g_{11}g_{22}}\\left[\\frac{\\mathrm{d}^2g_{22}}{(\\mathrm{d}x^1)^2} + \\frac{\\mathrm{d}^2g_{11}}{(\\mathrm{d}x^2)^2}\\right]",
+    "reference": "Equation 2.18"
+  },
+  {
+    "name": "Intrinsic Curvature (2D Simplified Form)",
+    "description": "Simplified expression for intrinsic curvature when g₁₁ is constant and g₂₂ depends only on x¹",
+    "latex": "\\mathcal{K} = \\frac{1}{4g_{11}(g_{22})^2}\\left(\\frac{\\mathrm{d}g_{22}}{\\mathrm{d}x^1}\\right)^2 - \\frac{1}{2g_{11}g_{22}}\\left[\\frac{\\mathrm{d}^2g_{22}}{(\\mathrm{d}x^1)^2}\\right]",
+    "reference": "Equation 2.19"
+  },
+  {
+    "name": "Proper Time",
+    "description": "The proper time dτ is an invariant measure of time that all observers agree on, defined as the spacetime interval divided by c. It equals the coordinate time measured by an observer co-located with events",
+    "latex": "\\mathrm{d}\\tau = \\frac{\\mathrm{d}s}{c}",
+    "reference": "Equation 2.20"
+  },
+  {
+    "name": "Curvature of a Spherical Surface",
+    "description": "The intrinsic curvature of the surface of a sphere is constant everywhere and depends only on the sphere's radius R",
+    "latex": "\\mathcal{K} = \\frac{1}{R^2}",
+    "reference": "Example 2.7"
+  },
+  {
+    "name": "Circumference on a Sphere",
+    "description": "The circumference of a circle on the surface of a sphere with its centre at the pole, where θ is the angular radius from the pole",
+    "latex": "C = 2\\pi R \\sin\\theta",
+    "reference": "Example 2.6"
+  },
+  {
+    "name": "Galilean Transformation (Position)",
+    "description": "Classical (non-relativistic) transformation of position coordinates between reference frames, valid only at speeds much less than c",
+    "latex": "x' = x - Vt",
+    "reference": "Section 2.1.2"
+  },
+  {
+    "name": "Galilean Transformation (Time)",
+    "description": "Classical assumption that time is absolute and the same in all reference frames (superseded by special relativity)",
+    "latex": "t' = t",
+    "reference": "Section 2.1.2"
+  }
+]

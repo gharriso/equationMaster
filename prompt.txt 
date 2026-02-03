@@ -1,0 +1,7 @@
+Using the  latex below, create a sympy script which represents the equation accurately. Declare sympy.symbols as required and construct the eqation using sympy.Eq, sympy.Ratioinal, sympy.Mul, etc. 
+Also declare non-sympy variables for any constant values that we might be able to obtain from astropy.constants or other astropy libraries:
+
+Give me the full script in one code block without commentary. 
+
+"M_J = \frac{9}{4}\left(\frac{1}{2\pi n}\right)^{1/2} \left(\frac{k_B T}{G m}\right)^{3/2}"
+

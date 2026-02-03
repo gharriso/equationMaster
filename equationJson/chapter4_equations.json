@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Friedmann Equation",
+    "description": "Describes how the expansion rate of the Universe depends on its geometry and the density of matter and energy within it. The term (a-dot/a) is the Hubble parameter H(t), rho is the total density, k is the spatial curvature parameter, and a is the scale factor",
+    "latex": "\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\rho - \\frac{kc^2}{a^2}",
+    "reference": "Equation 4.3"
+  },
+  {
+    "name": "Relativistic Friedmann Equation",
+    "description": "The general relativistic form of the Friedmann equation where the density term rho is replaced by energy density epsilon divided by c squared, reflecting that energy (not just rest mass) determines gravitational influence",
+    "latex": "\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3c^2}\\epsilon - \\frac{kc^2}{a^2}",
+    "reference": "Equation 4.4"
+  },
+  {
+    "name": "Relativistic Energy of a Particle",
+    "description": "The relativistic expression for the energy of a single particle with rest mass m0 and momentum p",
+    "latex": "E = \\sqrt{p^2c^2 + m_0^2c^4}",
+    "reference": "Equation 4.5"
+  },
+  {
+    "name": "First Law of Thermodynamics (Cosmological)",
+    "description": "The first law of thermodynamics applied to an expanding spherical region of the universe, where dQ/dt = 0 due to homogeneity preserving no temperature gradients",
+    "latex": "\\frac{\\mathrm{d}Q}{\\mathrm{d}t} = \\frac{\\mathrm{d}E}{\\mathrm{d}t} + P\\frac{\\mathrm{d}V}{\\mathrm{d}t} = 0",
+    "reference": "Equation 4.6"
+  },
+  {
+    "name": "Fluid Equation",
+    "description": "Describes how the energy densities and pressures of different fluids evolve in an expanding universe. The density term represents dilution while the pressure term arises from work done as the volume expands",
+    "latex": "\\dot{\\rho} + 3\\frac{\\dot{a}}{a}\\left(\\rho + \\frac{P}{c^2}\\right) = 0",
+    "reference": "Equation 4.8"
+  },
+  {
+    "name": "Acceleration Equation",
+    "description": "Describes the change in the rate at which the Universe expands. Increasing density or pressure slows expansion (reduces the rate at which scale factor increases)",
+    "latex": "\\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}\\left(\\rho + \\frac{3P}{c^2}\\right)",
+    "reference": "Equation 4.10"
+  },
+  {
+    "name": "Equation of State for a Perfect Fluid",
+    "description": "Relates the pressure P of a perfect fluid to its density rho through the equation of state parameter w. Different values of w describe different types of cosmic fluid",
+    "latex": "P(\\rho) = w\\rho c^2",
+    "reference": "Equation 4.11"
+  },
+  {
+    "name": "Equation of State for Matter",
+    "description": "For non-relativistic matter (pressureless dust), the equation of state parameter w_m = 0, giving zero pressure. This applies to both baryonic matter and dark matter",
+    "latex": "P_{\\mathrm{m}} = 0",
+    "reference": "Equation 4.12"
+  },
+  {
+    "name": "Ideal Gas Law (Cosmological Form)",
+    "description": "The ideal gas law written in terms of pressure P, temperature T, mean particle mass mu, density rho, and Boltzmann constant k_B",
+    "latex": "P = \\frac{k_{\\mathrm{B}}T}{\\mu}\\rho",
+    "reference": "Equation 4.13"
+  },
+  {
+    "name": "Fluid Equation for Matter",
+    "description": "The fluid equation simplified for pressureless matter, showing that the rate of change of matter density is proportional to the expansion rate",
+    "latex": "\\frac{\\dot{\\rho}_{\\mathrm{m}}}{\\rho_{\\mathrm{m}}} = -3\\frac{\\dot{a}}{a}",
+    "reference": "Equation 4.14"
+  },
+  {
+    "name": "Scale Factor Dependence of Matter Density",
+    "description": "Shows that matter density decreases as the cube of the scale factor as the Universe expands, reflecting the dilution of matter in an expanding volume",
+    "latex": "\\rho_{\\mathrm{m}} = \\frac{\\rho_{\\mathrm{m},0}}{a^3}",
+    "reference": "Equation 4.15"
+  },
+  {
+    "name": "Friedmann Equation (Flat Matter-Dominated)",
+    "description": "The Friedmann equation simplified for a flat (k=0) universe dominated by matter",
+    "latex": "\\dot{a}^2 = \\frac{8\\pi G}{3a}\\rho_{\\mathrm{m},0}",
+    "reference": "Equation 4.16"
+  },
+  {
+    "name": "Scale Factor Evolution (Matter-Dominated)",
+    "description": "How the scale factor evolves with time in a flat, matter-dominated universe, where t0 = (6 pi G rho_m,0)^(-1/2) is the present age",
+    "latex": "a(t) = \\left(\\frac{t}{t_0}\\right)^{2/3}",
+    "reference": "Equation 4.17"
+  },
+  {
+    "name": "Time Dependence of Matter Density",
+    "description": "How matter density evolves with time in a flat, matter-dominated universe",
+    "latex": "\\rho_{\\mathrm{m}}(t) = \\frac{\\rho_{\\mathrm{m},0}}{a^3} = \\rho_{\\mathrm{m},0}\\frac{t_0^2}{t^2}",
+    "reference": "Equation 4.18"
+  },
+  {
+    "name": "Equation of State for Radiation",
+    "description": "For relativistic radiation fluids (photons, neutrinos), the equation of state parameter w_r = 1/3, giving pressure equal to one-third of the energy density",
+    "latex": "P_{\\mathrm{r}} = \\frac{1}{3}\\rho_{\\mathrm{r}}c^2",
+    "reference": "Equation 4.19"
+  },
+  {
+    "name": "Scale Factor Dependence of Radiation Density",
+    "description": "Radiation density decreases as the fourth power of the scale factor - the extra factor of a compared to matter comes from photon wavelength stretching",
+    "latex": "\\rho_{\\mathrm{r}} = \\frac{\\rho_{\\mathrm{r},0}}{a^4}",
+    "reference": "Equation 4.20"
+  },
+  {
+    "name": "Friedmann Equation (Flat Radiation-Dominated)",
+    "description": "The Friedmann equation simplified for a flat (k=0) universe dominated by radiation",
+    "latex": "\\dot{a}^2 = \\frac{8\\pi G}{3a^2}\\rho_{\\mathrm{r},0}",
+    "reference": "Equation 4.21"
+  },
+  {
+    "name": "Time Dependence of Radiation Density",
+    "description": "How radiation density evolves with time in a flat, radiation-dominated universe",
+    "latex": "\\rho_{\\mathrm{r}}(t) = \\frac{\\rho_{\\mathrm{r},0}}{a^4} = \\rho_{\\mathrm{r},0}\\frac{t_0^2}{t^2}",
+    "reference": "Equation 4.23"
+  },
+  {
+    "name": "Friedmann Equation (Mixed Universe)",
+    "description": "The Friedmann equation for a universe containing both matter and radiation, using the total density",
+    "latex": "\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\rho_{\\mathrm{total}} - \\frac{kc^2}{a^2} = \\frac{8\\pi G}{3}(\\rho_{\\mathrm{m}} + \\rho_{\\mathrm{r}}) - \\frac{kc^2}{a^2}",
+    "reference": "Equation 4.24"
+  },
+  {
+    "name": "Friedmann Equation (Flat Universe)",
+    "description": "The Friedmann equation for a spatially flat universe where k=0 and rho equals the critical density",
+    "latex": "\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\rho_{\\mathrm{c}}(t)",
+    "reference": "Equation 4.25"
+  },
+  {
+    "name": "Critical Density",
+    "description": "The density required for the Universe to be spatially flat if the Hubble parameter has a particular value. This is a time-dependent quantity",
+    "latex": "\\rho_{\\mathrm{c}}(t) = \\frac{3H(t)^2}{8\\pi G}",
+    "reference": "Equation 4.26"
+  },
+  {
+    "name": "Present Critical Density",
+    "description": "The critical density evaluated at the present time using the Hubble constant H0",
+    "latex": "\\rho_{\\mathrm{c},0} = \\frac{3H_0^2}{8\\pi G}",
+    "reference": "Equation 4.27"
+  },
+  {
+    "name": "Density Parameter",
+    "description": "The dimensionless ratio of the actual density to the critical density. For flat universes Omega = 1 always",
+    "latex": "\\Omega(t) = \\frac{\\rho}{\\rho_{\\mathrm{c}}}",
+    "reference": "Equation 4.28"
+  },
+  {
+    "name": "Friedmann Equation (Density Parameter Form)",
+    "description": "The Friedmann equation rewritten in terms of the density parameter, showing the relationship between Omega and spatial curvature k",
+    "latex": "\\Omega - 1 = \\frac{kc^2}{H(t)^2a^2}",
+    "reference": "Equation 4.29"
+  },
+  {
+    "name": "Present-day Density-Curvature Relation",
+    "description": "The relationship between the present density parameter Omega_0 and the curvature parameter k, using the convention a(t0) = 1",
+    "latex": "\\Omega_0 - 1 = \\frac{\\rho_0}{\\rho_{\\mathrm{c},0}} - 1 = \\frac{kc^2}{H_0^2}",
+    "reference": "Equation 4.30"
+  },
+  {
+    "name": "Total Density Parameter (Component Form)",
+    "description": "The total density parameter expressed as the sum of matter and radiation density parameters",
+    "latex": "\\Omega = \\frac{\\rho}{\\rho_{\\mathrm{c}}} = \\frac{\\rho_{\\mathrm{m}}}{\\rho_{\\mathrm{c}}} + \\frac{\\rho_{\\mathrm{r}}}{\\rho_{\\mathrm{c}}} = \\Omega_{\\mathrm{m}} + \\Omega_{\\mathrm{r}}",
+    "reference": "Equation 4.31"
+  },
+  {
+    "name": "Effective Curvature Density Parameter",
+    "description": "An effective density parameter for curvature that allows the Friedmann equation to be written compactly",
+    "latex": "\\Omega_k = -\\frac{kc^2}{a^2H^2}",
+    "reference": "Equation 4.32"
+  },
+  {
+    "name": "Compact Friedmann Equation",
+    "description": "The Friedmann equation written in its most compact form using density parameters",
+    "latex": "\\Omega + \\Omega_k = 1",
+    "reference": "Equation 4.33"
+  },
+  {
+    "name": "Friedmann Equation with Cosmological Constant",
+    "description": "The Friedmann equation including the cosmological constant Lambda, which acts as a repulsive term that can accelerate expansion",
+    "latex": "\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\rho - \\frac{kc^2}{a^2} + \\frac{\\Lambda c^2}{3}",
+    "reference": "Equation 4.34"
+  },
+  {
+    "name": "Acceleration Equation with Cosmological Constant",
+    "description": "The acceleration equation including the cosmological constant. Positive Lambda increases the acceleration of expansion",
+    "latex": "\\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}\\left(\\rho + \\frac{3P}{c^2}\\right) + \\frac{\\Lambda c^2}{3}",
+    "reference": "Equation 4.35"
+  },
+  {
+    "name": "Cosmological Constant as Fluid Density",
+    "description": "The cosmological constant expressed as an equivalent constant energy density, treating Lambda as a third fluid component",
+    "latex": "\\rho_{\\Lambda} = \\frac{\\Lambda c^2}{8\\pi G}",
+    "reference": "Equation 4.37"
+  },
+  {
+    "name": "Density Parameter for Lambda",
+    "description": "The density parameter for the cosmological constant in terms of Lambda and the Hubble parameter",
+    "latex": "\\Omega_{\\Lambda} = \\frac{\\rho_{\\Lambda}}{\\rho_{\\mathrm{c}}} = \\frac{\\Lambda c^2}{8\\pi G}\\frac{8\\pi G}{3H(t)^2} = \\frac{\\Lambda c^2}{3H(t)^2}",
+    "reference": "Equation 4.39"
+  },
+  {
+    "name": "Total Density Parameter with Lambda",
+    "description": "The complete expression for total density parameter including matter, radiation, and cosmological constant contributions",
+    "latex": "\\Omega = \\Omega_{\\mathrm{m}} + \\Omega_{\\mathrm{r}} + \\Omega_{\\Lambda} = 1 - \\Omega_k",
+    "reference": "Equation 4.40"
+  },
+  {
+    "name": "Friedmann Equation (Full Density Parameter Form)",
+    "description": "The Friedmann equation written entirely in terms of present-day density parameters, useful for modeling universes with multiple components",
+    "latex": "\\frac{H^2}{H_0^2} = \\frac{\\Omega_{\\mathrm{m},0}}{a^3} + \\frac{\\Omega_{\\mathrm{r},0}}{a^4} + \\Omega_{\\Lambda,0} - \\frac{(\\Omega_0 - 1)}{a^2}",
+    "reference": "Equation 4.41"
+  },
+  {
+    "name": "Friedmann Equation (Matter and Lambda Only)",
+    "description": "Simplified Friedmann equation for a universe where radiation density is negligible compared to matter and cosmological constant",
+    "latex": "\\frac{H^2}{H_0^2} = \\frac{\\Omega_{\\mathrm{m},0}}{a^3} + \\Omega_{\\Lambda,0} + \\frac{1 - \\Omega_{\\mathrm{m},0} - \\Omega_{\\Lambda,0}}{a^2}",
+    "reference": "Equation 4.42"
+  },
+  {
+    "name": "Deceleration Parameter",
+    "description": "A dimensionless quantity that measures whether the expansion of the Universe is accelerating (q0 < 0) or decelerating (q0 > 0)",
+    "latex": "q_0 = -\\frac{\\ddot{a}(t_0)}{a(t_0)}\\frac{1}{H_0^2} = -\\frac{a(t_0)\\ddot{a}(t_0)}{\\dot{a}(t_0)^2}",
+    "reference": "Equation 4.43"
+  },
+  {
+    "name": "Scale Factor Taylor Expansion",
+    "description": "Taylor expansion of the scale factor around the present time, used to derive the deceleration parameter",
+    "latex": "a(t) = a(t_0) + \\dot{a}(t_0)(t - t_0) + \\frac{1}{2}\\ddot{a}(t_0)(t - t_0)^2 + \\mathcal{O}(3)",
+    "reference": "Equation 4.44"
+  },
+  {
+    "name": "Scale Factor Expansion (H0 and q0 Form)",
+    "description": "The Taylor expansion of the scale factor expressed in terms of the Hubble constant and deceleration parameter",
+    "latex": "\\frac{a(t)}{a(t_0)} = 1 + H_0(t - t_0) - \\frac{q_0}{2}H_0^2(t - t_0)^2 + \\mathcal{O}(3)",
+    "reference": "Equation 4.45"
+  },
+  {
+    "name": "Deceleration Parameter (Density Parameter Form)",
+    "description": "Expression for the deceleration parameter in terms of matter and cosmological constant density parameters. Shows that Lambda > Omega_m/2 leads to accelerating expansion",
+    "latex": "q_0 = \\frac{\\Omega_{\\mathrm{m},0}}{2} - \\Omega_{\\Lambda,0}",
+    "reference": "Equation 4.46"
+  }
+]

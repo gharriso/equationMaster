@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Lorentz Factor",
+    "description": "Relates measurements of distance and time intervals between different inertial frames in special relativity",
+    "latex": "\\gamma = \\frac{1}{\\sqrt{1 - V^2/c^2}}",
+    "reference": "(2.5)"
+  },
+  {
+    "name": "Minkowski Metric",
+    "description": "Defines the invariant spacetime separation on which all observers in flat spacetime can agree",
+    "latex": "ds^2 = c^2dt^2 - dx^2 - dy^2 - dz^2",
+    "reference": "(2.12)"
+  },
+  {
+    "name": "Friedmann Equation",
+    "description": "Describes how the rate of the Universe's expansion depends on its contents and spatial curvature",
+    "latex": "\\left(\\frac{\\dot{a}}{a}\\right)^2 = \\frac{8\\pi G}{3}\\rho - \\frac{kc^2}{a^2} + \\frac{\\Lambda c^2}{3}",
+    "reference": "(4.34)"
+  },
+  {
+    "name": "Fluid Equation",
+    "description": "Models how the densities of different components evolve as the Universe expands or contracts",
+    "latex": "\\dot{\\rho} + 3\\frac{\\dot{a}}{a}\\left(\\rho + \\frac{P}{c^2}\\right) = 0",
+    "reference": "(4.8)"
+  },
+  {
+    "name": "Acceleration Equation",
+    "description": "Determines whether the expansion of the Universe is accelerating or decelerating based on its contents",
+    "latex": "\\frac{\\ddot{a}}{a} = -\\frac{4\\pi G}{3}\\left(\\rho + \\frac{3P}{c^2}\\right) + \\frac{\\Lambda c^2}{3}",
+    "reference": "(4.35)"
+  },
+  {
+    "name": "Hubble Parameter",
+    "description": "Measures the rate of expansion of the Universe over a given length scale at a specific time",
+    "latex": "H(t) = \\frac{1}{a}\\frac{da}{dt} = \\frac{\\dot{a}}{a}",
+    "reference": "(3.12)"
+  },
+  {
+    "name": "Proper Distance (Present)",
+    "description": "The proper distance between two points today, which is equal to their constant co-moving distance",
+    "latex": "d_p(t_0) = d_c",
+    "reference": "(5.3)"
+  },
+  {
+    "name": "Luminosity Distance",
+    "description": "Relates the observed flux of a distant object to its known intrinsic luminosity",
+    "latex": "d_L = \\sqrt{\\frac{L}{4\\pi F}}",
+    "reference": "(5.11)"
+  },
+  {
+    "name": "Angular Diameter Distance",
+    "description": "Relates the observed angular size of a distant object to its known physical size",
+    "latex": "d_A = \\frac{l}{\\theta}",
+    "reference": "(5.13)"
+  },
+  {
+    "name": "Saha Equation",
+    "description": "Describes the ionization state of a gas in thermal equilibrium",
+    "latex": "\\frac{n_H}{n_p n_e} = \\left(\\frac{m_e k_B T}{2\\pi \\hbar^2}\\right)^{-3/2} \\exp\\left(\\frac{Q}{k_B T}\\right)",
+    "reference": "(9.1)"
+  },
+  {
+    "name": "Temperature Fluctuation",
+    "description": "A dimensionless quantity describing the relative variation in CMB temperature across the sky",
+    "latex": "\\frac{\\Delta T}{T}(\\theta, \\phi) \\equiv \\frac{T(\\theta, \\phi) - \\langle T \\rangle}{\\langle T \\rangle}",
+    "reference": "(6.5)"
+  },
+  {
+    "name": "Multipole Expansion",
+    "description": "Decomposes the pattern of CMB temperature fluctuations into a sum of spherical harmonic functions",
+    "latex": "\\frac{\\Delta T}{T}(\\theta, \\phi) = \\sum_{l,m} a_{lm} Y_{lm}(\\theta, \\phi)",
+    "reference": "(6.7)"
+  },
+  {
+    "name": "Cosmic Variance",
+    "description": "Represents the irreducible uncertainty in measuring the power spectrum from a single vantage point",
+    "latex": "\\sigma^2(C_l) = \\frac{2}{2l+1} C_l^2",
+    "reference": "(6.9)"
+  },
+  {
+    "name": "Jeans Mass",
+    "description": "The minimum mass needed for a gas cloud to overcome internal pressure and collapse under gravity",
+    "latex": "M_J = \\frac{9}{4}\\left(\\frac{1}{2\\pi n}\\right)^{1/2} \\left(\\frac{k_B T}{G m}\\right)^{3/2}",
+    "reference": "(10.1)"
+  },
+  {
+    "name": "Virial Mass Estimate",
+    "description": "Relates the total gravitating mass of a cluster to the observed radial velocities of its galaxies",
+    "latex": "M = \\frac{3\\sigma_v^2 R}{G}",
+    "reference": "(9.18)"
+  }
+]

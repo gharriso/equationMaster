@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Redshift Definition",
+    "description": "Definition of cosmological redshift, measuring the change in wavelength of radiation from an astronomical body caused by its movement away from the observer",
+    "latex": "z = \\frac{\\lambda_{\\text{obs}} - \\lambda_{\\text{em}}}{\\lambda_{\\text{em}}} = \\frac{\\lambda_{\\text{obs}}}{\\lambda_{\\text{em}}} - 1",
+    "reference": "Equation 1.1"
+  },
+  {
+    "name": "Hubble-Lemaître Law",
+    "description": "Linear relationship between redshift and distance in the relatively nearby Universe, where D is the galaxy distance, c is the speed of light, and H₀ is the Hubble constant",
+    "latex": "z = \\frac{H_0 D}{c}",
+    "reference": "Equation 1.2"
+  },
+  {
+    "name": "Flux-Luminosity Relation",
+    "description": "Relationship between flux F and luminosity L for an object emitting light isotropically at distance D from the Earth",
+    "latex": "F = \\frac{L}{4 \\pi D^2}",
+    "reference": "Equation 1.3"
+  },
+  {
+    "name": "Surface Brightness",
+    "description": "Surface brightness of a square region of the sky with angular dimensions θ × θ, where F is the total flux from that region",
+    "latex": "\\Sigma = \\frac{F}{\\theta^2}",
+    "reference": "Equation 1.4"
+  },
+  {
+    "name": "Maxwell-Boltzmann Distribution",
+    "description": "Distribution of particle speeds in a gas in thermal equilibrium, where f(v)dv is the fraction of particles of mass m with speed between v and v+dv",
+    "latex": "f(v) \\, dv = \\left( \\frac{m}{2 \\pi k_B T} \\right)^{3/2} 4 \\pi v^2 e^{-mv^2/(2k_B T)} \\, dv",
+    "reference": "Equation 1.5"
+  },
+  {
+    "name": "Ideal Gas Law",
+    "description": "Relationship between pressure P, particle number density n, and temperature T for an ideal gas of particles",
+    "latex": "P = n k_B T",
+    "reference": "Equation 1.6"
+  },
+  {
+    "name": "Radiation Pressure",
+    "description": "Relationship between pressure and temperature for a gas of photons, where a is the radiation constant",
+    "latex": "P = \\frac{1}{3} a T^4",
+    "reference": "Equation 1.7"
+  },
+  {
+    "name": "Mean Free Path (Thomson Scattering)",
+    "description": "Mean free path λ for electron scattering in a gas, where nₑ is the electron number density and σT is the Thomson cross-section",
+    "latex": "\\lambda = \\frac{1}{n_e \\sigma_T}",
+    "reference": "Equation 1.8"
+  },
+  {
+    "name": "Saha Equation",
+    "description": "Describes the ionisation state of a hydrogen gas in thermal equilibrium, relating number densities of neutral hydrogen atoms (nH), protons (np), and electrons (ne). Q is the binding energy of hydrogen (13.6 eV)",
+    "latex": "\\frac{n_H}{n_p n_e} = \\left( \\frac{m_e k_B T}{2 \\pi \\hbar^2} \\right)^{-3/2} \\exp \\left( \\frac{Q}{k_B T} \\right)",
+    "reference": "Equation 1.9"
+  },
+  {
+    "name": "Saha Equation (Ionisation Fraction Form)",
+    "description": "Saha equation rewritten in terms of the ionisation fraction X = np/nb for a pure hydrogen gas where ne ≈ np",
+    "latex": "\\frac{1 - X}{X} = n_p \\left( \\frac{m_e k_B T}{2 \\pi \\hbar^2} \\right)^{-3/2} \\exp \\left( \\frac{Q}{k_B T} \\right)",
+    "reference": "Equation 1.10"
+  },
+  {
+    "name": "Angular Diameter-Distance Relation",
+    "description": "Relationship between angular diameter θ, physical radius R, and distance D for an astronomical object spanning a small angle (using small-angle approximation)",
+    "latex": "\\theta = \\frac{2R}{D}",
+    "reference": "Figure 1.4 / Example 1.1"
+  },
+  {
+    "name": "CMB Temperature Evolution",
+    "description": "How the temperature of the cosmic microwave background decreases as the Universe expands, where z is redshift",
+    "latex": "T \\propto 1 + z",
+    "reference": "Exercise 1.4"
+  }
+]
