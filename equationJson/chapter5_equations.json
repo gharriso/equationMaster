@@ -1,230 +1,39 @@
 [
-  {
-    "name": "Proper Distance",
-    "description": "The formal definition of the proper distance between two objects, computed by integrating the radial component of the Robertson-Walker metric. R is the radial coordinate, a(t) is the scale factor, and k is the curvature parameter",
-    "latex": "d_{\\mathrm{p}}(t) = a(t) \\int_0^R \\frac{\\mathrm{d}r}{\\sqrt{1 - kr^2}}",
-    "reference": "Equation 5.1"
-  },
-  {
-    "name": "Proper Distance and Co-moving Distance Relation",
-    "description": "The relationship between proper distance and co-moving distance at cosmic time t, where dc is the co-moving distance which does not depend on cosmic time",
-    "latex": "d_{\\mathrm{p}}(t) = a(t)d_{\\mathrm{c}}",
-    "reference": "Equation 5.2"
-  },
-  {
-    "name": "Present Proper Distance Equals Co-moving Distance",
-    "description": "When the scale factor is conventionally set to unity at the present time (a(t0)=1), the present proper distance equals the co-moving distance",
-    "latex": "d_{\\mathrm{p}}(t_0) = a(t_0)d_{\\mathrm{c}} = d_{\\mathrm{c}}",
-    "reference": "Equation 5.3"
-  },
-  {
-    "name": "Robertson-Walker Metric for Null Geodesics",
-    "description": "The Robertson-Walker metric for photons travelling along null geodesics (ds^2 = 0) in the radial direction",
-    "latex": "\\mathrm{d}s^2 = c^2 \\mathrm{d}t^2 - a(t)^2 \\frac{\\mathrm{d}r^2}{1 - kr^2} = 0",
-    "reference": "Equation 5.4"
-  },
-  {
-    "name": "Metric Separation of Time and Radial Terms",
-    "description": "Separation of the Robertson-Walker metric terms that depend on time t from those that depend on radial coordinate r",
-    "latex": "\\frac{c^2 \\mathrm{d}t^2}{a(t)^2} = \\frac{\\mathrm{d}r^2}{1 - kr^2}",
-    "reference": "Equation 5.5"
-  },
-  {
-    "name": "Light Travel Integral",
-    "description": "Integral form relating the time and radial coordinate for photons emitted at time tem and detected at time tobs, travelling from r=R to r=0",
-    "latex": "c \\int_{t_{\\mathrm{em}}}^{t_{\\mathrm{obs}}} \\frac{\\mathrm{d}t}{a(t)} = \\int_0^R \\frac{\\mathrm{d}r}{\\sqrt{1 - kr^2}}",
-    "reference": "Equation 5.6"
-  },
-  {
-    "name": "Proper Distance from Cosmic Time Integral",
-    "description": "Expression for the present proper distance in terms of an integral over cosmic time, relating directly to measurements of cosmic time",
-    "latex": "d_{\\mathrm{p}}(t_0) = c \\int_{t_{\\mathrm{em}}}^{t_{\\mathrm{obs}}} \\frac{\\mathrm{d}t}{a(t)}",
-    "reference": "Equation 5.7"
-  },
-  {
-    "name": "Horizon Distance Integral (Matter-Dominated)",
-    "description": "The integral for computing the horizon distance in a flat, matter-dominated universe where a(t) = (t/t0)^(2/3)",
-    "latex": "d_{\\mathrm{hor}}(t_0) = ct_0^{2/3} \\int_0^{t_0} t^{-2/3} \\mathrm{d}t",
-    "reference": "Equation 5.8"
-  },
-  {
-    "name": "Proper Distance in Terms of Redshift",
-    "description": "Expression for the present proper distance as an integral over redshift, where E(z) encodes the dependence on cosmological parameters. This directly relates dp to observable redshift",
-    "latex": "d_{\\mathrm{p}}(t_0) = \\frac{c}{H_0} \\int_0^{z_{\\mathrm{em}}} \\frac{\\mathrm{d}z}{E(z)}",
-    "reference": "Equation 5.9"
-  },
-  {
-    "name": "E(z) Function",
-    "description": "The dimensionless function E(z) that appears in the proper distance integral, encoding the dependence on density parameters",
-    "latex": "E(z) = \\sqrt{\\Omega_{\\mathrm{m},0}(1+z)^3 + \\Omega_{\\mathrm{r},0}(1+z)^4 + \\Omega_{\\Lambda,0} + \\Omega_{k,0}(1+z)^2}",
-    "reference": "Exercise 5.1"
-  },
-  {
-    "name": "Hubble-Lemaître Law (Low Redshift)",
-    "description": "At low redshifts, the proper distance integral reduces to the linear Hubble-Lemaître law relating redshift to present proper distance",
-    "latex": "z = \\frac{H_0 d_{\\mathrm{p}}(t_0)}{c}",
-    "reference": "Equation 5.10"
-  },
-  {
-    "name": "Luminosity Distance",
-    "description": "Definition of the luminosity distance, which relates the intrinsic luminosity L of a standard candle to its observed flux F",
-    "latex": "d_{\\mathrm{L}} = \\sqrt{\\frac{L}{4\\pi F}}",
-    "reference": "Equation 5.11"
-  },
-  {
-    "name": "Luminosity Distance and Proper Distance Relation",
-    "description": "In a flat universe, the luminosity distance is related to the present proper distance by a factor of (1+z), accounting for cosmic expansion effects on observed flux",
-    "latex": "d_{\\mathrm{L}} = (1 + z) d_{\\mathrm{p}}(t_0)",
-    "reference": "Equation 5.12"
-  },
-  {
-    "name": "Angular Diameter Distance",
-    "description": "Definition of the angular diameter distance, relating the physical size l of a standard rod to its observed angular size theta (in radians)",
-    "latex": "d_{\\mathrm{A}} = \\frac{l}{\\sin\\theta} \\approx \\frac{l}{\\theta}",
-    "reference": "Equation 5.13"
-  },
-  {
-    "name": "Angular Diameter Distance and Proper Distance Relation",
-    "description": "In a flat universe, the angular diameter distance is related to the present proper distance by a factor of 1/(1+z)",
-    "latex": "d_{\\mathrm{A}} = \\frac{d_{\\mathrm{p}}(t_0)}{1 + z}",
-    "reference": "Equation 5.14"
-  },
-  {
-    "name": "Angular Size at Emission Time",
-    "description": "The angular size of a standard rod as seen by an observer at the time of photon emission, where the proper distance was dp(tem)",
-    "latex": "\\theta_{\\mathrm{AB}} = \\frac{l}{d_{\\mathrm{p}}(t_{\\mathrm{em}})}",
-    "reference": "Equation 5.15"
-  },
-  {
-    "name": "Physical Length from Angular Size",
-    "description": "Expression for the physical length l of a standard rod in terms of observed angle, proper distance, and scale factor",
-    "latex": "l = d_{\\mathrm{p}}(t_{\\mathrm{em}}) \\theta_{\\mathrm{obs}} = \\frac{1}{1+z} d_{\\mathrm{p}}(t_0) \\theta_{\\mathrm{obs}}",
-    "reference": "Equation 5.16"
-  },
-  {
-    "name": "Angular Diameter Distance Equals Emission Proper Distance",
-    "description": "The angular diameter distance equals the proper distance at the time of emission, which was smaller due to the smaller scale factor",
-    "latex": "d_{\\mathrm{p}}(t_{\\mathrm{em}}) = \\frac{a(t_{\\mathrm{em}})}{a(t_0)} d_{\\mathrm{p}}(t_0) = \\frac{d_{\\mathrm{p}}(t_0)}{1 + z_{\\mathrm{em}}} = d_{\\mathrm{A}}",
-    "reference": "Equation 5.17"
-  },
-  {
-    "name": "Surface Brightness Redshift Dependence",
-    "description": "The observed surface brightness of objects decreases rapidly with redshift as (1+z)^(-4), making high-redshift objects difficult to detect",
-    "latex": "\\Sigma \\propto (1 + z)^{-4}",
-    "reference": "Equation 5.18"
-  },
-  {
-    "name": "Stellar Parallax Distance",
-    "description": "Calculation of distance using stellar parallax, where db is the baseline distance (Earth's orbital radius) and theta is half the parallax angle",
-    "latex": "d_{\\mathrm{p}} = \\frac{d_{\\mathrm{b}}}{\\theta_\\varpi}",
-    "reference": "Equation 5.19"
-  },
-  {
-    "name": "Recession Velocity",
-    "description": "The recession velocity of a star due to cosmic expansion, expressed in terms of the co-moving distance, scale factor, and Hubble parameter",
-    "latex": "v_{\\mathrm{r}}(t) = \\dot{a}(t) d_{\\mathrm{c}} = \\frac{\\dot{a}(t)}{a(t)} d_{\\mathrm{p}}(t) = H(t) d_{\\mathrm{p}}(t)",
-    "reference": "Equation 5.20"
-  },
-  {
-    "name": "Scale Factor-Redshift Relation (Rearranged)",
-    "description": "The relationship between scale factor and redshift, rearranged to isolate z",
-    "latex": "z = \\frac{a(t_0)}{a(t_{\\mathrm{em}})} - 1",
-    "reference": "Equation 5.21"
-  },
-  {
-    "name": "Low-z Approximation for Redshift",
-    "description": "Approximate expression for redshift at low values using Taylor expansion of the scale factor around t0",
-    "latex": "z \\approx \\frac{1}{1 - H_0(t_0 - t_{\\mathrm{em}})} - 1",
-    "reference": "Equation 5.22"
-  },
-  {
-    "name": "Recession Velocity Approximation",
-    "description": "Approximate recession velocity for nearby objects where stellar parallax can be measured (z ~ 10^-5)",
-    "latex": "v_{\\mathrm{r}}(t_0) \\approx cz \\approx 3 \\, \\mathrm{km \\, s}^{-1}",
-    "reference": "Equation 5.23"
-  },
-  {
-    "name": "Classical Cepheid Period-Luminosity Relation",
-    "description": "The relationship between the mean absolute magnitude of a Classical Cepheid star and its pulsation period P in days, with empirically determined coefficients A and B",
-    "latex": "\\langle M \\rangle = A [\\log_{10}(P) - 1] - B",
-    "reference": "Equation 5.24"
-  },
-  {
-    "name": "Distance Modulus",
-    "description": "The relationship between apparent magnitude m, absolute magnitude M, and luminosity distance dL in parsecs",
-    "latex": "\\mu = m - M = 5 \\log_{10}(d_{\\mathrm{L}}/\\mathrm{pc}) - 5",
-    "reference": "Equation 5.25"
-  },
-  {
-    "name": "Hubble Distance",
-    "description": "A characteristic cosmological length scale that sets an approximate size for the observable Universe",
-    "latex": "d_{\\mathrm{H}} = c/H_0",
-    "reference": "Equation 5.26"
-  },
-  {
-    "name": "Hubble Time",
-    "description": "A characteristic cosmological time scale that provides an approximate age for the Universe (though not equal to the true age in general)",
-    "latex": "t_{\\mathrm{H}} = H_0^{-1}",
-    "reference": "Equation 5.27"
-  },
-  {
-    "name": "Reduced Hubble Constant Squared",
-    "description": "Definition of h^2, used when measuring baryon and dark matter densities as multiples of this quantity",
-    "latex": "h^2 = \\left( \\frac{H_0}{100 \\, \\mathrm{km \\, s}^{-1} \\mathrm{Mpc}^{-1}} \\right)^2",
-    "reference": "Equation 5.28"
-  },
-  {
-    "name": "Apparent Magnitude Expression",
-    "description": "Expression for the apparent magnitude of a Type Ia supernova in terms of absolute magnitude M, Hubble constant H0 (in km/s/Mpc), and luminosity distance dL (in Mpc)",
-    "latex": "m = M - 5 \\log_{10} H_0 + 5 \\log_{10}(H_0 d_{\\mathrm{L}}) + 25",
-    "reference": "Equation 5.29"
-  },
-  {
-    "name": "Hubble Constant from Distance Modulus",
-    "description": "Expression for computing the Hubble constant from corrected apparent magnitudes and the true absolute magnitude of Type Ia supernovae",
-    "latex": "\\log_{10} H_0 = \\log_{10}(H_0 d_{\\mathrm{L}}) - \\frac{m_{\\mathrm{corr}}}{5} + \\frac{M_{\\mathrm{true}}}{5} + 5",
-    "reference": "Equation 5.30"
-  },
-  {
-    "name": "Low-Redshift Approximation Variable",
-    "description": "A measurable variable that can be computed directly from observations of Type Ia supernovae at low redshift, where H0dL ≈ cz",
-    "latex": "\\mathcal{A} = \\log_{10}(H_0 d_{\\mathrm{L}}) - \\frac{m_{\\mathrm{corr}}}{5} \\approx \\log_{10}(cz) - \\frac{m_{\\mathrm{corr}}}{5}",
-    "reference": "Equation 5.31"
-  },
-  {
-    "name": "Luminosity Distance Expansion (Second Order)",
-    "description": "Second-order approximation for the luminosity distance at moderate redshifts (accurate to 1% for z < 0.2), including the deceleration parameter q0",
-    "latex": "H_0 d_{\\mathrm{L}} = cz \\left( 1 + \\frac{1 - q_0}{2} z \\right)",
-    "reference": "Equation 5.32"
-  },
-  {
-    "name": "Intercept M Definition",
-    "description": "Definition of the intercept parameter M that combines absolute magnitude with the Hubble constant, allowing cosmological parameters to be measured without knowing H0",
-    "latex": "\\mathcal{M} \\equiv M - 5 \\log_{10} H_0 + 25",
-    "reference": "Equation 5.33"
-  },
-  {
-    "name": "Low-Redshift Magnitude-Redshift Relation",
-    "description": "Linear relationship between apparent magnitude and log(cz) at low redshift, used to estimate the intercept M",
-    "latex": "m = M - 5 \\log_{10} H_0 + 5 \\log_{10}(cz) + 25 = \\mathcal{M} + 5 \\log_{10}(cz)",
-    "reference": "Equation 5.34"
-  },
-  {
-    "name": "Uncertainty Propagation (Unary Function)",
-    "description": "Standard formula for propagating measurement uncertainty through a function of a single variable",
-    "latex": "\\sigma^2_{f(x)} = \\left( \\frac{\\mathrm{d}f(x)}{\\mathrm{d}x} \\right)^2 \\sigma^2_x",
-    "reference": "Equation 5.35"
-  },
-  {
-    "name": "Uncertainty Propagation (Binary Function)",
-    "description": "Standard formula for propagating measurement uncertainties through a function of two uncorrelated variables",
-    "latex": "\\sigma^2_{f(a,b)} = \\left( \\frac{\\partial f(a,b)}{\\partial a} \\right)^2 \\sigma^2_a + \\left( \\frac{\\partial f(a,b)}{\\partial b} \\right)^2 \\sigma^2_b",
-    "reference": "Equation 5.36"
-  },
-  {
-    "name": "Distance Relations Summary",
-    "description": "Summary of the relationships between present proper distance, luminosity distance, and angular diameter distance in a spatially flat universe",
-    "latex": "d_{\\mathrm{p}}(t_0) = \\frac{d_{\\mathrm{L}}}{1+z} = (1+z) d_{\\mathrm{A}}",
-    "reference": "Equation 5.38"
-  }
+  {"latex": "d_{\\mathrm{p}}(t) = a(t) \\int_0^R \\frac{\\mathrm{d}r}{\\sqrt{1 - kr^2}}", "reference": "Equation 5.1"},
+  {"latex": "d_{\\mathrm{p}}(t) = a(t)d_{\\mathrm{c}}", "reference": "Equation 5.2"},
+  {"latex": "d_{\\mathrm{p}}(t_0) = a(t_0)d_{\\mathrm{c}} = d_{\\mathrm{c}}", "reference": "Equation 5.3"},
+  {"latex": "\\mathrm{d}s^2 = c^2 \\mathrm{d}t^2 - a(t)^2 \\frac{\\mathrm{d}r^2}{1 - kr^2} = 0", "reference": "Equation 5.4"},
+  {"latex": "\\frac{c^2 \\mathrm{d}t^2}{a(t)^2} = \\frac{\\mathrm{d}r^2}{1 - kr^2}", "reference": "Equation 5.5"},
+  {"latex": "c \\int_{t_{\\mathrm{em}}}^{t_{\\mathrm{obs}}} \\frac{\\mathrm{d}t}{a(t)} = \\int_0^R \\frac{\\mathrm{d}r}{\\sqrt{1 - kr^2}}", "reference": "Equation 5.6"},
+  {"latex": "d_{\\mathrm{p}}(t_0) = c \\int_{t_{\\mathrm{em}}}^{t_{\\mathrm{obs}}} \\frac{\\mathrm{d}t}{a(t)}", "reference": "Equation 5.7"},
+  {"latex": "d_{\\mathrm{hor}}(t_0) = ct_0^{2/3} \\int_0^{t_0} t^{-2/3} \\mathrm{d}t", "reference": "Equation 5.8"},
+  {"latex": "d_{\\mathrm{p}}(t_0) = \\frac{c}{H_0} \\int_0^{z_{\\mathrm{em}}} \\frac{\\mathrm{d}z}{E(z)}", "reference": "Equation 5.9"},
+  {"latex": "z = \\frac{H_0 d_{\\mathrm{p}}(t_0)}{c}", "reference": "Equation 5.10"},
+  {"latex": "d_{\\mathrm{L}} = \\sqrt{\\frac{L}{4\\pi F}}", "reference": "Equation 5.11"},
+  {"latex": "d_{\\mathrm{L}} = (1 + z) d_{\\mathrm{p}}(t_0)", "reference": "Equation 5.12"},
+  {"latex": "d_{\\mathrm{A}} = \\frac{l}{\\sin\\theta} \\approx \\frac{l}{\\theta}", "reference": "Equation 5.13"},
+  {"latex": "d_{\\mathrm{A}} = \\frac{d_{\\mathrm{p}}(t_0)}{1 + z}", "reference": "Equation 5.14"},
+  {"latex": "\\theta_{\\mathrm{AB}} = \\frac{l}{d_{\\mathrm{p}}(t_{\\mathrm{em}})}", "reference": "Equation 5.15"},
+  {"latex": "l = d_{\\mathrm{p}}(t_{\\mathrm{em}}) \\theta_{\\mathrm{obs}} = \\frac{1}{1+z} d_{\\mathrm{p}}(t_0) \\theta_{\\mathrm{obs}}", "reference": "Equation 5.16"},
+  {"latex": "d_{\\mathrm{p}}(t_{\\mathrm{em}}) = \\frac{a(t_{\\mathrm{em}})}{a(t_0)} d_{\\mathrm{p}}(t_0) = \\frac{d_{\\mathrm{p}}(t_0)}{1 + z_{\\mathrm{em}}} = d_{\\mathrm{A}}", "reference": "Equation 5.17"},
+  {"latex": "\\Sigma \\propto (1 + z)^{-4}", "reference": "Equation 5.18"},
+  {"latex": "d_{\\mathrm{p}} = \\frac{d_{\\mathrm{b}}}{\\theta_\\varpi}", "reference": "Equation 5.19"},
+  {"latex": "v_{\\mathrm{r}}(t) = \\dot{a}(t) d_{\\mathrm{c}} = \\frac{\\dot{a}(t)}{a(t)} d_{\\mathrm{p}}(t) = H(t) d_{\\mathrm{p}}(t)", "reference": "Equation 5.20"},
+  {"latex": "z = \\frac{a(t_0)}{a(t_{\\mathrm{em}})} - 1", "reference": "Equation 5.21"},
+  {"latex": "z \\approx \\frac{1}{1 - H_0(t_0 - t_{\\mathrm{em}})} - 1", "reference": "Equation 5.22"},
+  {"latex": "v_{\\mathrm{r}}(t_0) \\approx cz \\approx 3 \\, \\mathrm{km \\, s}^{-1}", "reference": "Equation 5.23"},
+  {"latex": "\\langle M \\rangle = A [\\log_{10}(P) - 1] - B", "reference": "Equation 5.24"},
+  {"latex": "\\mu = m - M = 5 \\log_{10}(d_{\\mathrm{L}}/\\mathrm{pc}) - 5", "reference": "Equation 5.25"},
+  {"latex": "d_{\\mathrm{H}} = c/H_0", "reference": "Equation 5.26"},
+  {"latex": "t_{\\mathrm{H}} = H_0^{-1}", "reference": "Equation 5.27"},
+  {"latex": "h^2 = \\left( \\frac{H_0}{100 \\, \\mathrm{km \\, s}^{-1} \\mathrm{Mpc}^{-1}} \\right)^2", "reference": "Equation 5.28"},
+  {"latex": "m = M - 5 \\log_{10} H_0 + 5 \\log_{10}(H_0 d_{\\mathrm{L}}) + 25", "reference": "Equation 5.29"},
+  {"latex": "\\log_{10} H_0 = \\log_{10}(H_0 d_{\\mathrm{L}}) - \\frac{m_{\\mathrm{corr}}}{5} + \\frac{M_{\\mathrm{true}}}{5} + 5", "reference": "Equation 5.30"},
+  {"latex": "\\mathcal{A} = \\log_{10}(H_0 d_{\\mathrm{L}}) - \\frac{m_{\\mathrm{corr}}}{5} \\approx \\log_{10}(cz) - \\frac{m_{\\mathrm{corr}}}{5}", "reference": "Equation 5.31"},
+  {"latex": "H_0 d_{\\mathrm{L}} = cz \\left( 1 + \\frac{1 - q_0}{2} z \\right)", "reference": "Equation 5.32"},
+  {"latex": "\\mathcal{M} \\equiv M - 5 \\log_{10} H_0 + 25", "reference": "Equation 5.33"},
+  {"latex": "m = \\mathcal{M} + 5 \\log_{10}(cz)", "reference": "Equation 5.34"},
+  {"latex": "\\sigma^2_{f(x)} = \\left( \\frac{\\mathrm{d}f(x)}{\\mathrm{d}x} \\right)^2 \\sigma^2_x", "reference": "Equation 5.35"},
+  {"latex": "\\sigma^2_{f(a,b)} = \\left( \\frac{\\partial f(a,b)}{\\partial a} \\right)^2 \\sigma^2_a + \\left( \\frac{\\partial f(a,b)}{\\partial b} \\right)^2 \\sigma^2_b", "reference": "Equation 5.36"},
+  {"latex": "d_{\\mathrm{p}}(t_0) = \\frac{d_{\\mathrm{L}}}{1+z} = (1+z) d_{\\mathrm{A}}", "reference": "Equation 5.38"}
 ]

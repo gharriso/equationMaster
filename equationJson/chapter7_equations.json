@@ -1,0 +1,14 @@
+[
+  {"latex": "d_{\\mathrm{hor}}(t_{\\mathrm{ls}}) = a(t_{\\mathrm{ls}})c \\int_0^{t_{\\mathrm{ls}}} \\frac{\\mathrm{d}t}{a(t)}", "reference": "Equation 7.1"},
+  {"latex": "t(a) = \\frac{4}{3} \\frac{a_{\\mathrm{mr}}^2}{H_0 \\sqrt{\\Omega_{\\mathrm{r},0}}} \\left[ 1 - \\left( 1 - \\frac{a}{2a_{\\mathrm{mr}}} \\right) \\left( 1 + \\frac{a}{a_{\\mathrm{mr}}} \\right)^{1/2} \\right]", "reference": "Equation 7.2"},
+  {"latex": "\\epsilon = \\frac{4\\sigma_{\\mathrm{SB}} T^4}{c}", "reference": "Equation 7.3"},
+  {"latex": "d_{\\mathrm{s}}(z_{\\mathrm{ls}}) = a(z_{\\mathrm{ls}}) \\int_0^{t_{\\mathrm{ls}}} \\frac{c_{\\mathrm{s}}}{a(t)} \\, \\mathrm{d}t", "reference": "Equation 7.4"},
+  {"latex": "c_{\\mathrm{s}} = c \\left( 3 + \\frac{9}{4} \\frac{\\Omega_{\\mathrm{b}}}{\\Omega_{\\mathrm{r}}} \\right)^{-1/2}", "reference": "Equation 7.5"},
+  {"latex": "\\theta_{\\mathrm{s}} \\approx \\frac{d_{\\mathrm{s}}(z_{\\mathrm{ls}})}{d_{\\mathrm{A}}(z_{\\mathrm{ls}})}", "reference": "Equation 7.6"},
+  {"latex": "1 = \\Omega_{\\mathrm{m},0} + \\Omega_{\\Lambda,0} + \\Omega_{\\mathrm{r},0} \\approx \\Omega_{\\mathrm{m},0} + \\Omega_{\\Lambda,0}", "reference": "Equation 7.7"},
+  {"latex": "\\theta_{\\mathrm{hor}}(z_{\\mathrm{ls}}) = \\frac{d_{\\mathrm{hor}}(t_{\\mathrm{ls}})}{d_{\\mathrm{A}}(z_{\\mathrm{ls}})}", "reference": "Angular Size of Horizon Distance"},
+  {"latex": "T_{\\mathrm{r}} \\propto P_{\\mathrm{r}}^{1/4} \\propto \\rho_{\\mathrm{r}}^{1/4}", "reference": "Temperature-Density Relation for Radiation"},
+  {"latex": "d_{\\mathrm{s}}(z_{\\mathrm{ls}}) \\approx \\frac{d_{\\mathrm{hor}}(z_{\\mathrm{ls}})}{\\sqrt{3}}", "reference": "Sound Horizon Approximation"},
+  {"latex": "\\frac{\\Omega_{\\mathrm{m}}(z_{\\mathrm{ls}})}{\\Omega_{\\mathrm{r}}(z_{\\mathrm{ls}})} = \\frac{1}{1 + z_{\\mathrm{ls}}} \\frac{\\Omega_{\\mathrm{m},0}}{\\Omega_{\\mathrm{r},0}}", "reference": "Matter-Radiation Density Ratio at Last Scattering"},
+  {"latex": "\\frac{\\Omega_{\\mathrm{m}}(z_{\\mathrm{ls}})}{\\Omega_{\\Lambda}(z_{\\mathrm{ls}})} = (1 + z_{\\mathrm{ls}})^3 \\frac{\\Omega_{\\mathrm{m},0}}{\\Omega_{\\Lambda,0}}", "reference": "Matter-Lambda Density Ratio at Last Scattering"}
+]

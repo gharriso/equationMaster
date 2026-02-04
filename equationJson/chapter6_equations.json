@@ -1,0 +1,16 @@
+[
+  {"latex": "\\nu' = \\gamma \\nu \\left( 1 - \\frac{V}{c} \\cos\\theta \\right)", "reference": "Equation 6.1"},
+  {"latex": "T' = \\gamma T \\left( 1 - \\frac{V}{c} \\cos\\theta \\right)", "reference": "Equation 6.2"},
+  {"latex": "\\frac{T}{T'} = 1 + \\frac{V}{c} \\cos\\theta + \\frac{V^2}{c^2} \\left( \\cos^2\\theta - \\frac{1}{2} \\right) + \\cdots", "reference": "Equation 6.3"},
+  {"latex": "d_{\\mathrm{A}} \\approx \\frac{d_{\\mathrm{hor}}(t_0)}{z}", "reference": "Equation 6.4"},
+  {"latex": "\\frac{\\Delta T}{T}(\\theta, \\phi) \\equiv \\frac{T(\\theta, \\phi) - \\langle T \\rangle}{\\langle T \\rangle}", "reference": "Equation 6.5"},
+  {"latex": "f(\\theta, \\phi) = \\sum_{\\ell=0}^{\\infty} \\sum_{m=-\\ell}^{\\ell} a_{\\ell m} Y_{\\ell m}(\\theta, \\phi)", "reference": "Equation 6.6"},
+  {"latex": "\\frac{\\Delta T}{T}(\\theta, \\phi) = \\sum_{\\ell=0}^{\\infty} \\sum_{m=-\\ell}^{\\ell} a_{\\ell m} Y_{\\ell m}(\\theta, \\phi)", "reference": "Equation 6.7"},
+  {"latex": "\\widehat{C_\\ell} = \\frac{1}{2\\ell + 1} \\sum_{m=-\\ell}^{\\ell} |a_{\\ell m}|^2", "reference": "Equation 6.8"},
+  {"latex": "\\sigma^2(\\widehat{C_\\ell}, \\ell) = \\frac{2}{2\\ell + 1} \\widehat{C_\\ell}^2", "reference": "Equation 6.9"},
+  {"latex": "\\Delta_T^2 = \\frac{\\ell(\\ell + 1)}{2\\pi} C_\\ell \\langle T \\rangle^2", "reference": "Equation 6.10"},
+  {"latex": "Y_{\\ell m}(\\theta, \\phi) = \\sqrt{\\frac{2\\ell + 1}{4\\pi} \\frac{(\\ell - m)!}{(\\ell + m)!}} P_\\ell^m(\\cos\\theta) e^{im\\phi}", "reference": "Spherical Harmonics Definition"},
+  {"latex": "\\langle T \\rangle = \\frac{1}{4\\pi} \\int_0^\\pi \\int_0^{2\\pi} T(\\theta, \\phi) \\sin\\theta \\, \\mathrm{d}\\theta \\, \\mathrm{d}\\phi", "reference": "Mean CMB Temperature"},
+  {"latex": "a_{\\ell m} = \\int_{-\\pi}^{\\pi} \\int_0^{2\\pi} f(\\theta, \\phi) Y_{\\ell m}^*(\\theta, \\phi) \\, \\mathrm{d}\\Omega", "reference": "Spherical Harmonic Coefficients"},
+  {"latex": "C_\\ell \\equiv \\langle |a_{\\ell m}|^2 \\rangle", "reference": "Angular Power Spectrum Definition"}
+]

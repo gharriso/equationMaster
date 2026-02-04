@@ -1,0 +1,17 @@
+[
+  {"latex": "t_{\\mathrm{cool}} = \\frac{nE_{\\mathrm{k}}}{\\Lambda_{\\mathrm{cool}}} = \\frac{\\gamma n k_{\\mathrm{B}} T}{2\\Lambda_{\\mathrm{cool}}}", "reference": "Equation 11.1"},
+  {"latex": "\\frac{\\mathrm{d}R}{\\mathrm{d}t} \\approx \\frac{Q}{4\\pi R^2 n_{\\mathrm{H}}}", "reference": "Equation 11.2"},
+  {"latex": "t_{\\mathrm{r}} = [n_{\\mathrm{e}} \\alpha(T)]^{-1}", "reference": "Equation 11.3"},
+  {"latex": "\\frac{\\mathrm{d}R}{\\mathrm{d}t} \\approx \\frac{Q}{4\\pi R^2 n_{\\mathrm{H}}} - \\frac{n_{\\mathrm{i}} n_{\\mathrm{e}} \\alpha(T) R}{3 n_{\\mathrm{H}}}", "reference": "Equation 11.4"},
+  {"latex": "R_{\\mathrm{max}} \\approx \\left[ \\frac{3Q}{4\\pi n_{\\mathrm{i}} n_{\\mathrm{e}} \\alpha(T)} \\right]^{1/3}", "reference": "Equation 11.5"},
+  {"latex": "R(t) \\approx R_{\\mathrm{max}} [1 - \\exp(-t/t_{\\mathrm{r}})]^{1/3}", "reference": "Equation 11.6"},
+  {"latex": "v_{\\mathrm{esc}} = \\sqrt{\\frac{2GM}{R}}", "reference": "Equation 11.7"},
+  {"latex": "\\log[N(>F)] = -\\frac{3}{2}\\log(F) + \\mathrm{constant}", "reference": "Equation 11.8"},
+  {"latex": "\\Phi_{\\mathrm{L}} = \\frac{\\mathrm{d}n}{\\mathrm{d}\\log_{10} L}", "reference": "Equation 11.9"},
+  {"latex": "\\Phi_{\\mathrm{M}} = \\frac{\\mathrm{d}n}{\\mathrm{d}\\log_{10} M}", "reference": "Equation 11.10"},
+  {"latex": "\\frac{\\mathrm{d}n}{\\mathrm{d}M_{\\mathrm{halo}}} = (1.72 \\times 10^8\\,M_\\odot^{0.9}\\,\\mathrm{Mpc}^{-3}) M_{\\mathrm{halo}}^{-1.9}", "reference": "Equation 11.11"},
+  {"latex": "n = (1.72 \\times 10^8\\,M_\\odot^{0.9}\\,\\mathrm{Mpc}^{-3}) \\left[ \\frac{M^{-0.9}}{-0.9} \\right]_{M_1}^{M_2}", "reference": "Equation 11.12"},
+  {"latex": "n = (1.91 \\times 10^8\\,M_\\odot^{0.9}\\,\\mathrm{Mpc}^{-3}) [M_1^{-0.9} - M_2^{-0.9}]", "reference": "Equation 11.13"},
+  {"latex": "M_* = \\epsilon_* f_{\\mathrm{B}} M_{\\mathrm{halo}}", "reference": "Equation 11.14"},
+  {"latex": "\\omega(\\theta) = \\frac{\\langle P(\\theta) \\rangle}{R(\\theta)} - 1", "reference": "Equation 11.15"}
+]

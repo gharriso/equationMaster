@@ -1,0 +1,23 @@
+[
+  {"latex": "\\frac{n_{\\mathrm{H}}}{n_{\\mathrm{p}} n_{\\mathrm{e}}} = \\left( \\frac{m_{\\mathrm{e}} k_{\\mathrm{B}} T}{2\\pi\\hbar^2} \\right)^{-3/2} \\exp\\left( \\frac{Q}{k_{\\mathrm{B}} T} \\right)", "reference": "Equation 9.1"},
+  {"latex": "\\frac{1 - X}{X} = n_{\\mathrm{p}} \\left( \\frac{m_{\\mathrm{e}} k_{\\mathrm{B}} T}{2\\pi\\hbar^2} \\right)^{-3/2} \\exp\\left( \\frac{Q}{k_{\\mathrm{B}} T} \\right)", "reference": "Equation 9.2"},
+  {"latex": "\\eta = \\frac{1}{X} \\frac{n_{\\mathrm{p}}}{n_\\gamma}", "reference": "Equation 9.3"},
+  {"latex": "n_{\\mathrm{p}} = \\eta X n_\\gamma", "reference": "Equation 9.4"},
+  {"latex": "\\frac{1 - X}{X^2} = \\eta \\left( \\frac{aT^3}{3k_{\\mathrm{B}}} \\right) \\left( \\frac{m_{\\mathrm{e}} k_{\\mathrm{B}} T}{2\\pi\\hbar^2} \\right)^{-3/2} \\exp\\left( \\frac{Q}{k_{\\mathrm{B}} T} \\right)", "reference": "Equation 9.5"},
+  {"latex": "\\Gamma_{\\mathrm{e}} = n_{\\mathrm{e}} \\sigma_{\\mathrm{T}} c", "reference": "Equation 9.6"},
+  {"latex": "\\Gamma_{\\mathrm{e}} = X(z)(1 + z)^3 n_{\\mathrm{b},0} \\sigma_{\\mathrm{T}} c", "reference": "Equation 9.7"},
+  {"latex": "H(z) = H_0 \\sqrt{\\Omega_{\\mathrm{m},0}(1 + z)^3}", "reference": "Equation 9.8"},
+  {"latex": "z_{\\mathrm{ls}} = \\left[ \\frac{H_0 \\sqrt{\\Omega_{\\mathrm{m},0}}}{X(z) n_{\\mathrm{b},0} \\sigma_{\\mathrm{T}} c} \\right]^{2/3} - 1", "reference": "Equation 9.9"},
+  {"latex": "[\\mathrm{O}/\\mathrm{H}] = \\log_{10}\\left( \\frac{n_{\\mathrm{O}}}{n_{\\mathrm{H}}} \\right) - \\log_{10}\\left( \\frac{n_{\\mathrm{O},\\odot}}{n_{\\mathrm{H},\\odot}} \\right)", "reference": "Equation 9.10"},
+  {"latex": "Z = 1 - (X + Y)", "reference": "Equation 9.11"},
+  {"latex": "\\sigma_{\\mathrm{m}} = \\frac{\\sigma}{\\sqrt{N}}", "reference": "Equation 9.12"},
+  {"latex": "\\sigma^2 = \\frac{1}{N} \\sum_i (x_i - \\langle x \\rangle)^2", "reference": "Equation 9.13"},
+  {"latex": "2E_{\\mathrm{k}} + E_{\\mathrm{g}} = 0", "reference": "Equation 9.14"},
+  {"latex": "E_{\\mathrm{k}} = \\frac{3}{2} M \\sigma_{\\mathrm{v}}^2", "reference": "Equation 9.15"},
+  {"latex": "E_{\\mathrm{g}} = -\\frac{3GM^2}{5R}", "reference": "Equation 9.16"},
+  {"latex": "E_{\\mathrm{g}} = -\\frac{GM^2}{R}", "reference": "Equation 9.17"},
+  {"latex": "M = \\frac{3\\sigma_{\\mathrm{v}}^2 R}{G}", "reference": "Equation 9.18"},
+  {"latex": "E_{\\mathrm{k}} = \\frac{3}{2} \\frac{M}{\\langle m \\rangle} k_{\\mathrm{B}} T", "reference": "Equation 9.19"},
+  {"latex": "T = \\frac{GM\\langle m \\rangle}{5k_{\\mathrm{B}} R}", "reference": "Equation 9.20"},
+  {"latex": "v = \\sqrt{\\frac{GM(< r)}{r}}", "reference": "Equation 9.21"}
+]
