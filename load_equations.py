@@ -8,20 +8,18 @@ Uses a SHA256 hash of the LaTeX as the primary key for deduplication.
 
 import hashlib
 import json
-import os
+import re
 import sys
 from pathlib import Path
 
 import ollama
 from pymongo import MongoClient
 
+from config import MONGODB_URI, DATABASE_NAME, COLLECTION_NAME, OLLAMA_MODEL, JSON_DIR
 
-# Configuration
-MONGODB_URI = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
-DATABASE_NAME = "AstroEquations"
-COLLECTION_NAME = "equations"
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3")
-JSON_DIR = Path(__file__).parent / "equationJson"
+
+# Resolve JSON directory path
+JSON_DIR = Path(__file__).parent / JSON_DIR
 
 
 def generate_equation_id(latex: str) -> str:
@@ -51,13 +49,24 @@ Respond in exactly this JSON format, with no additional text:
         # Parse the JSON response
         content = response["message"]["content"].strip()
         # Handle case where model wraps response in markdown code blocks
-        if content.startswith("```"):
-            content = content.split("```")[1]
-            if content.startswith("json"):
-                content = content[4:]
-            content = content.strip()
+        if "```" in content:
+            match = re.search(r'```(?:json)?\s*(.*?)```', content, re.DOTALL)
+            if match:
+                content = match.group(1).strip()
 
-        result = json.loads(content)
+        # Try to parse JSON
+        try:
+            result = json.loads(content)
+        except json.JSONDecodeError:
+            # Fallback: extract fields with regex
+            result = {}
+            name_match = re.search(r'"name"\s*:\s*"([^"]*)"', content)
+            if name_match:
+                result["name"] = name_match.group(1)
+            desc_match = re.search(r'"description"\s*:\s*"(.*?)"(?=\s*[,}])', content, re.DOTALL)
+            if desc_match:
+                result["description"] = desc_match.group(1).replace('\n', ' ').strip()
+
         return {
             "name": result.get("name", ""),
             "description": result.get("description", "")
@@ -131,10 +140,14 @@ def main():
     db = client[DATABASE_NAME]
     collection = db[COLLECTION_NAME]
 
-    # Test Ollama connection
+    # Test Ollama connection with a simple request
     print(f"Testing Ollama connection with model '{OLLAMA_MODEL}'...")
     try:
-        ollama.list()
+        ollama.chat(
+            model=OLLAMA_MODEL,
+            messages=[{"role": "user", "content": "Reply with just the word: OK"}],
+            options={"num_predict": 10}
+        )
         print("  Ollama connection successful")
     except Exception as e:
         print(f"  Warning: Ollama not available ({e})")

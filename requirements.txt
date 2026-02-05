@@ -2,3 +2,4 @@ python-docx
 sympy
 pymongo
 ollama
+streamlit
