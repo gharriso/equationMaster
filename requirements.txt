@@ -3,3 +3,6 @@ sympy
 pymongo
 ollama
 streamlit
+astropy
+numpy
+ipython

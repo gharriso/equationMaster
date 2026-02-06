@@ -346,6 +346,90 @@ def render_equation_detail(eq):
                     if len(related) > 10:
                         st.caption(f"... and {len(related) - 10} more")
 
+    # Sample Python script section
+    if eq.get('sample_script'):
+        st.markdown("### Sample Python Script")
+        st.caption("Auto-generated script demonstrating sympy representation with astropy units")
+
+        # Initialize script in session state if not present or if equation changed
+        script_key = f"script_{eq['_id']}"
+        if script_key not in st.session_state:
+            st.session_state[script_key] = eq['sample_script']
+
+        # Toggle between view and edit mode
+        col1, col2, col3, col4 = st.columns([1, 1, 1, 3])
+        with col1:
+            edit_mode = st.toggle("Edit", key=f"edit_toggle_{eq['_id']}")
+        with col2:
+            if st.button("📋 Copy", key=f"copy_{eq['_id']}"):
+                st.session_state[f"copied_{eq['_id']}"] = True
+        with col3:
+            if st.button("Reset", key=f"reset_{eq['_id']}"):
+                st.session_state[script_key] = eq['sample_script']
+                st.rerun()
+
+        # Handle copy to clipboard using JavaScript
+        if st.session_state.get(f"copied_{eq['_id']}"):
+            # Use st.components to inject JavaScript for clipboard
+            import streamlit.components.v1 as components
+            script_escaped = st.session_state[script_key].replace('\\', '\\\\').replace('`', '\\`').replace('$', '\\$')
+            components.html(
+                f"""
+                <script>
+                    navigator.clipboard.writeText(`{script_escaped}`).then(function() {{
+                        window.parent.postMessage({{type: 'streamlit:toast', message: 'Copied to clipboard!'}}, '*');
+                    }});
+                </script>
+                <p style="color: green; font-size: 14px;">✓ Copied to clipboard!</p>
+                """,
+                height=30
+            )
+            st.session_state[f"copied_{eq['_id']}"] = False
+
+        if edit_mode:
+            # Editable text area
+            edited_script = st.text_area(
+                "Edit script:",
+                value=st.session_state[script_key],
+                height=400,
+                key=f"editor_{eq['_id']}",
+                label_visibility="collapsed"
+            )
+            st.session_state[script_key] = edited_script
+        else:
+            # Syntax-highlighted view
+            st.code(st.session_state[script_key], language='python')
+
+        # Execute button and output
+        if st.button("▶ Run Script", key=f"run_{eq['_id']}", type="primary"):
+            st.markdown("#### Output")
+
+            import io
+            import contextlib
+
+            # Capture stdout and stderr
+            stdout_capture = io.StringIO()
+            stderr_capture = io.StringIO()
+
+            try:
+                with contextlib.redirect_stdout(stdout_capture), contextlib.redirect_stderr(stderr_capture):
+                    # Create a safe namespace for execution
+                    exec_globals = {"__builtins__": __builtins__}
+                    exec(st.session_state[script_key], exec_globals)
+
+                stdout_output = stdout_capture.getvalue()
+                stderr_output = stderr_capture.getvalue()
+
+                if stdout_output:
+                    st.code(stdout_output, language='text')
+                if stderr_output:
+                    st.warning(stderr_output)
+                if not stdout_output and not stderr_output:
+                    st.info("Script executed successfully (no output)")
+
+            except Exception as e:
+                st.error(f"Error: {type(e).__name__}: {e}")
+
 
 def init_session_state():
     """Initialize session state with data loaded once."""

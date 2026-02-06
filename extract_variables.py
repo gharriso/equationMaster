@@ -13,8 +13,11 @@ Usage:
 
 import argparse
 import json
+import logging
 import re
 import sys
+from datetime import datetime
+from pathlib import Path
 
 import ollama
 from pymongo import MongoClient
@@ -22,6 +25,37 @@ from sympy import symbols
 from sympy.parsing.latex import parse_latex
 
 from config import MONGODB_URI, DATABASE_NAME, COLLECTION_NAME, OLLAMA_MODEL
+
+
+# Set up LLM-specific logging to a separate file
+LLM_LOG_FILE = Path(__file__).parent / "llm_interactions.log"
+llm_logger = logging.getLogger("llm")
+llm_logger.setLevel(logging.DEBUG)
+llm_handler = logging.FileHandler(LLM_LOG_FILE, mode='a', encoding='utf-8')
+llm_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+llm_logger.addHandler(llm_handler)
+
+
+def log_llm_request(context: str, prompt: str):
+    """Log an LLM request."""
+    llm_logger.info(f"{'='*60}")
+    llm_logger.info(f"REQUEST: {context}")
+    llm_logger.info(f"MODEL: {OLLAMA_MODEL}")
+    llm_logger.info(f"PROMPT:\n{prompt}")
+
+
+def log_llm_response(context: str, response: str, duration_ms: float = None):
+    """Log an LLM response."""
+    duration_str = f" ({duration_ms:.0f}ms)" if duration_ms else ""
+    llm_logger.info(f"RESPONSE{duration_str}:\n{response}")
+    llm_logger.info(f"END: {context}")
+    llm_logger.info("")
+
+
+def log_llm_error(context: str, error: str):
+    """Log an LLM error."""
+    llm_logger.error(f"ERROR in {context}: {error}")
+    llm_logger.info("")
 
 
 def get_lhs_of_equation(latex: str) -> str:
@@ -141,14 +175,22 @@ Common astropy.constants: G (gravitational), c (speed of light), h (Planck), hba
 
 Common astropy.units: K, m, s, kg, J, W, Hz, eV, pc, Mpc, Gyr, yr, solMass, solLum, cm, g"""
 
+    context = f"get_variable_info({symbol}, {equation_ref})"
+    log_llm_request(context, prompt)
+
     try:
+        import time
+        start_time = time.time()
+
         response = ollama.chat(
             model=OLLAMA_MODEL,
             messages=[{"role": "user", "content": prompt}],
             options={"temperature": 0.2}
         )
 
+        duration_ms = (time.time() - start_time) * 1000
         content = response["message"]["content"].strip()
+        log_llm_response(context, content, duration_ms)
 
         # Handle markdown code blocks
         if "```" in content:
@@ -192,6 +234,7 @@ Common astropy.units: K, m, s, kg, J, W, Hz, eV, pc, Mpc, Gyr, yr, solMass, solL
             "astropy_constant": result.get("astropy_constant")
         }
     except json.JSONDecodeError as e:
+        log_llm_error(context, f"JSON parse error: {e}")
         print(f"    Warning: Failed to parse JSON for {symbol}: {e}")
         print(f"    Response was: {content[:200]}...")
         return {
@@ -202,6 +245,7 @@ Common astropy.units: K, m, s, kg, J, W, Hz, eV, pc, Mpc, Gyr, yr, solMass, solL
             "astropy_constant": None
         }
     except Exception as e:
+        log_llm_error(context, str(e))
         print(f"    Warning: Failed to get info for {symbol}: {e}")
         return {
             "symbol": symbol,
@@ -222,8 +266,136 @@ def is_symbol_on_lhs(symbol: str, lhs: str) -> bool:
     return symbol in lhs_symbols
 
 
-def process_equation(doc: dict, collection) -> int:
-    """Process a single equation and extract its variables."""
+def generate_sample_script(latex: str, name: str, reference: str, variables: list) -> str:
+    """
+    Use Ollama to generate a sample Python script for an equation.
+    The script will:
+    1. Define sympy symbols for each variable
+    2. Create a sympy Eq() representation
+    3. Assign values with astropy units
+    4. Create a lambdified function
+    """
+    if not variables:
+        return ""
+
+    # Build variable info for the prompt
+    var_info_lines = []
+    for var in variables:
+        symbol = var.get("symbol", "")
+        var_name = var.get("name", "")
+        unit = var.get("astropy_unit", "")
+        constant = var.get("astropy_constant", "")
+        is_lhs = var.get("lhs", False)
+
+        line = f"  - {symbol}: {var_name}"
+        if is_lhs:
+            line += " [LEFT HAND SIDE - this is what we solve for]"
+        if constant:
+            line += f", astropy constant: {constant}"
+        elif unit:
+            line += f", unit: {unit}"
+        var_info_lines.append(line)
+
+    var_info = "\n".join(var_info_lines)
+
+    prompt = f"""You are an expert Python programmer specializing in physics and symbolic mathematics.
+
+Generate a complete, working Python script for this cosmology equation, following the template below exactly.
+
+Equation: {name}
+Reference: {reference}
+LaTeX: {latex}
+
+Variables:
+{var_info}
+
+IMPORTANT RULES:
+1. Use Rational() from sympy to enclose ALL numeric fractions and exponents (e.g., Rational(3,2) not 1.5 or 3/2)
+2. Define ALL sympy symbols with real=True, positive=True
+3. Follow the template structure exactly
+4. Pass astropy Quantity values directly to the lambdified function - they work with numpy
+
+TEMPLATE TO FOLLOW:
+```python
+# Jeans mass for polytropic gas (Equation 10.1)
+
+from sympy import symbols, Eq, solve, lambdify, sqrt, exp, log, pi, init_printing, Rational
+from astropy import units as u, constants as const
+from IPython.display import display
+
+init_printing()
+
+# Define symbols
+G, M_J, T, k_B, m, n = symbols('G M_J T k_B m n', real=True, positive=True)
+
+# Construct the equation
+rhs = (Rational(9,4)) * sqrt(Rational(1)/(Rational(2)*pi*n)) * Rational(1)/(m**Rational(2)) * ((k_B*T)/G)**(Rational(3,2))
+eq10_1 = Eq(M_J, rhs)
+
+# Display the equation
+display(eq10_1)
+
+# Solve for M_J and display the solution
+sol = solve(eq10_1, M_J)[0]
+display(sol)
+
+# Lambdify the RHS (all RHS variables as arguments)
+eq10_1_lambidified = lambdify((G, T, k_B, m, n), rhs, modules='numpy')
+
+# Assign sample values with astropy units
+G_val   = const.G          # gravitational constant
+T_val   = 10.0 * u.K       # temperature
+k_B_val = const.k_B        # Boltzmann constant
+m_val   = 1.67e-27 * u.kg  # mean particle mass (proton mass)
+n_val   = 1e6 * u.m**-3    # particle number density
+
+# Compute the Jeans mass
+M_J_val = eq10_1_lambidified(G_val, T_val, k_B_val, m_val, n_val)
+
+# Print the result
+display("Jeans mass")
+display(M_J_val.to('kg'))
+```
+
+Now generate a similar script for the equation above. Return ONLY the Python code, no explanations."""
+
+    context = f"generate_sample_script({reference})"
+    log_llm_request(context, prompt)
+
+    try:
+        import time
+        start_time = time.time()
+
+        response = ollama.chat(
+            model=OLLAMA_MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            options={"temperature": 0.2}
+        )
+
+        duration_ms = (time.time() - start_time) * 1000
+        content = response["message"]["content"].strip()
+        log_llm_response(context, content, duration_ms)
+
+        # Remove markdown code blocks if present
+        if "```python" in content:
+            match = re.search(r'```python\s*(.*?)```', content, re.DOTALL)
+            if match:
+                content = match.group(1).strip()
+        elif "```" in content:
+            match = re.search(r'```\s*(.*?)```', content, re.DOTALL)
+            if match:
+                content = match.group(1).strip()
+
+        return content
+
+    except Exception as e:
+        log_llm_error(context, str(e))
+        print(f"    Warning: Failed to generate script: {e}")
+        return ""
+
+
+def process_equation(doc: dict, collection) -> tuple[int, bool]:
+    """Process a single equation: extract variables and generate sample script."""
     latex = doc.get("latex", "")
     equation_id = doc.get("_id")
     equation_name = doc.get("name", "")
@@ -241,7 +413,7 @@ def process_equation(doc: dict, collection) -> int:
     print(f"    Found {len(symbols_list)} symbols: {', '.join(symbols_list)}")
 
     if not symbols_list:
-        return 0
+        return 0, False
 
     # Get info for each symbol
     variables = []
@@ -256,13 +428,26 @@ def process_equation(doc: dict, collection) -> int:
 
         variables.append(var_info)
 
-    # Update the document
+    # Generate sample Python script
+    print(f"    Generating sample script...")
+    sample_script = generate_sample_script(latex, equation_name, equation_ref, variables)
+    script_generated = bool(sample_script)
+    if script_generated:
+        print(f"    Script generated ({len(sample_script)} chars)")
+    else:
+        print(f"    Script generation failed")
+
+    # Update the document with variables and script
+    update_data = {"variables": variables}
+    if sample_script:
+        update_data["sample_script"] = sample_script
+
     collection.update_one(
         {"_id": equation_id},
-        {"$set": {"variables": variables}}
+        {"$set": update_data}
     )
 
-    return len(variables)
+    return len(variables), script_generated
 
 
 def parse_args():
@@ -282,6 +467,13 @@ def parse_args():
 def main():
     """Main entry point."""
     args = parse_args()
+
+    # Log session start
+    llm_logger.info("=" * 60)
+    llm_logger.info(f"NEW SESSION STARTED: {datetime.now().isoformat()}")
+    llm_logger.info(f"Model: {OLLAMA_MODEL}")
+    llm_logger.info("=" * 60)
+    print(f"LLM interactions logged to: {LLM_LOG_FILE}")
 
     print(f"Connecting to MongoDB at {MONGODB_URI}...")
     client = MongoClient(MONGODB_URI)
@@ -316,17 +508,23 @@ def main():
         sys.exit(1)
 
     total_variables = 0
+    total_scripts = 0
 
     for i, doc in enumerate(equations, 1):
         if args.limit:
             print(f"\n[{i}/{args.limit}]")
-        variables_count = process_equation(doc, collection)
+        else:
+            print(f"\n[{i}/{len(equations)}]")
+        variables_count, script_generated = process_equation(doc, collection)
         total_variables += variables_count
+        if script_generated:
+            total_scripts += 1
 
     print(f"\n{'='*50}")
     print(f"Complete!")
     print(f"  Equations processed: {len(equations)}")
     print(f"  Total variables extracted: {total_variables}")
+    print(f"  Sample scripts generated: {total_scripts}")
 
 
 if __name__ == "__main__":
