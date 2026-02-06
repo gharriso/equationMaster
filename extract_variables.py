@@ -151,31 +151,38 @@ def extract_symbols_from_latex(latex: str) -> list[str]:
     return sorted(list(symbols_found))
 
 
-def get_variable_info(symbol: str, latex: str, equation_name: str, equation_ref: str) -> dict:
-    """Use Ollama to get description, units, and astropy references for a variable."""
+def get_all_variables_info(symbols_list: list, latex: str, equation_name: str, equation_ref: str) -> list:
+    """Use Ollama to get description, units, and astropy references for ALL variables in one call."""
 
-    prompt = f"""You are a cosmology and astrophysics expert. Analyze this variable from a cosmology equation.
+    symbols_str = ", ".join(symbols_list)
+
+    prompt = f"""You are a cosmology and astrophysics expert. Analyze ALL variables from this cosmology equation.
 
 Equation name: {equation_name}
 Equation reference: {equation_ref}
 Full equation (LaTeX): {latex}
-Variable to analyze: {symbol}
+Variables to analyze: {symbols_str}
 
-Provide information about this variable in the context of this equation. Respond in exactly this JSON format with no additional text:
+Provide information about EACH variable in the context of this equation. Respond with a JSON array containing one object per variable. Use exactly this format with no additional text:
 
-{{
-    "symbol": "{symbol}",
-    "name": "short descriptive name of the variable",
+[
+  {{
+    "symbol": "first_symbol",
+    "name": "short descriptive name",
     "description": "1 sentence description of what this variable represents physically",
-    "astropy_unit": "the astropy.units representation (e.g., 'u.K' for Kelvin, 'u.m' for meters, 'u.kg' for kilograms, 'u.s' for seconds, 'u.J' for Joules, 'u.W' for Watts, 'u.Hz' for Hertz, 'u.m/u.s' for velocity, 'u.dimensionless_unscaled' if dimensionless) or null if not applicable",
-    "astropy_constant": "the astropy.constants name if this is a physical constant (e.g., 'const.k_B' for Boltzmann constant, 'const.G' for gravitational constant, 'const.c' for speed of light, 'const.h' for Planck constant, 'const.m_e' for electron mass, 'const.m_p' for proton mass, 'const.sigma_T' for Thomson cross-section) or null if not a constant"
-}}
+    "astropy_unit": "u.X format (e.g., 'u.K', 'u.m', 'u.kg', 'u.s', 'u.m/u.s', 'u.dimensionless_unscaled') or null",
+    "astropy_constant": "const.X format (e.g., 'const.G', 'const.k_B', 'const.c') or null if not a constant"
+  }},
+  ... one object for each variable ...
+]
 
 Common astropy.constants: G (gravitational), c (speed of light), h (Planck), hbar (reduced Planck), k_B (Boltzmann), sigma_sb (Stefan-Boltzmann), m_e (electron mass), m_p (proton mass), m_n (neutron mass), e (elementary charge), sigma_T (Thomson cross-section), a (radiation constant), R (gas constant)
 
-Common astropy.units: K, m, s, kg, J, W, Hz, eV, pc, Mpc, Gyr, yr, solMass, solLum, cm, g"""
+Common astropy.units: K, m, s, kg, J, W, Hz, eV, pc, Mpc, Gyr, yr, solMass, solLum, cm, g
 
-    context = f"get_variable_info({symbol}, {equation_ref})"
+Return a JSON array with exactly {len(symbols_list)} objects, one for each variable: {symbols_str}"""
+
+    context = f"get_all_variables_info({equation_ref}, {len(symbols_list)} vars)"
     log_llm_request(context, prompt)
 
     try:
@@ -194,66 +201,81 @@ Common astropy.units: K, m, s, kg, J, W, Hz, eV, pc, Mpc, Gyr, yr, solMass, solL
 
         # Handle markdown code blocks
         if "```" in content:
-            # Extract content between code blocks
             match = re.search(r'```(?:json)?\s*(.*?)```', content, re.DOTALL)
             if match:
                 content = match.group(1).strip()
 
-        # Try to parse JSON
+        # Try to parse JSON array
         try:
-            result = json.loads(content)
+            results = json.loads(content)
+            if isinstance(results, list):
+                # Ensure all symbols are covered
+                result_symbols = {r.get("symbol") for r in results}
+                variables = []
+                for symbol in symbols_list:
+                    # Find matching result or create empty one
+                    matching = [r for r in results if r.get("symbol") == symbol]
+                    if matching:
+                        var = matching[0]
+                        variables.append({
+                            "symbol": symbol,
+                            "name": var.get("name", ""),
+                            "description": var.get("description", ""),
+                            "astropy_unit": var.get("astropy_unit"),
+                            "astropy_constant": var.get("astropy_constant")
+                        })
+                    else:
+                        variables.append({
+                            "symbol": symbol,
+                            "name": "",
+                            "description": "",
+                            "astropy_unit": None,
+                            "astropy_constant": None
+                        })
+                return variables
         except json.JSONDecodeError:
-            # Try to fix common JSON issues and extract fields with regex
-            result = {}
+            pass
 
-            # Extract name
-            name_match = re.search(r'"name"\s*:\s*"([^"]*)"', content)
-            if name_match:
-                result["name"] = name_match.group(1)
+        # Fallback: try to extract individual objects from the response
+        variables = []
+        for symbol in symbols_list:
+            # Look for this symbol's entry in the response
+            pattern = rf'\{{\s*"symbol"\s*:\s*"{re.escape(symbol)}"[^}}]*\}}'
+            match = re.search(pattern, content, re.DOTALL)
+            if match:
+                try:
+                    var = json.loads(match.group(0))
+                    variables.append({
+                        "symbol": symbol,
+                        "name": var.get("name", ""),
+                        "description": var.get("description", ""),
+                        "astropy_unit": var.get("astropy_unit"),
+                        "astropy_constant": var.get("astropy_constant")
+                    })
+                    continue
+                except json.JSONDecodeError:
+                    pass
+            # Default empty entry
+            variables.append({
+                "symbol": symbol,
+                "name": "",
+                "description": "",
+                "astropy_unit": None,
+                "astropy_constant": None
+            })
+        return variables
 
-            # Extract description - handle multi-line and escaped quotes
-            desc_match = re.search(r'"description"\s*:\s*"(.*?)"(?=\s*[,}]|\s*"astropy)', content, re.DOTALL)
-            if desc_match:
-                result["description"] = desc_match.group(1).replace('\n', ' ').strip()
-
-            # Extract astropy_unit
-            unit_match = re.search(r'"astropy_unit"\s*:\s*(?:"([^"]*)"|null)', content)
-            if unit_match:
-                result["astropy_unit"] = unit_match.group(1)
-
-            # Extract astropy_constant
-            const_match = re.search(r'"astropy_constant"\s*:\s*(?:"([^"]*)"|null)', content)
-            if const_match:
-                result["astropy_constant"] = const_match.group(1)
-
-        return {
-            "symbol": symbol,
-            "name": result.get("name", ""),
-            "description": result.get("description", ""),
-            "astropy_unit": result.get("astropy_unit"),
-            "astropy_constant": result.get("astropy_constant")
-        }
-    except json.JSONDecodeError as e:
-        log_llm_error(context, f"JSON parse error: {e}")
-        print(f"    Warning: Failed to parse JSON for {symbol}: {e}")
-        print(f"    Response was: {content[:200]}...")
-        return {
-            "symbol": symbol,
-            "name": "",
-            "description": "",
-            "astropy_unit": None,
-            "astropy_constant": None
-        }
     except Exception as e:
         log_llm_error(context, str(e))
-        print(f"    Warning: Failed to get info for {symbol}: {e}")
-        return {
+        print(f"    Warning: Failed to get variable info: {e}")
+        # Return empty entries for all symbols
+        return [{
             "symbol": symbol,
             "name": "",
             "description": "",
             "astropy_unit": None,
             "astropy_constant": None
-        }
+        } for symbol in symbols_list]
 
 
 def is_symbol_on_lhs(symbol: str, lhs: str) -> bool:
@@ -415,18 +437,15 @@ def process_equation(doc: dict, collection) -> tuple[int, bool]:
     if not symbols_list:
         return 0, False
 
-    # Get info for each symbol
-    variables = []
-    for symbol in symbols_list:
-        print(f"    Getting info for '{symbol}'...")
-        var_info = get_variable_info(symbol, latex, equation_name, equation_ref)
+    # Get info for ALL symbols in a single LLM call
+    print(f"    Getting info for all {len(symbols_list)} variables...")
+    variables = get_all_variables_info(symbols_list, latex, equation_name, equation_ref)
 
-        # Add LHS flag
-        var_info["lhs"] = is_symbol_on_lhs(symbol, lhs)
+    # Add LHS flag to each variable
+    for var_info in variables:
+        var_info["lhs"] = is_symbol_on_lhs(var_info["symbol"], lhs)
         if var_info["lhs"]:
-            print(f"      (on LHS)")
-
-        variables.append(var_info)
+            print(f"      {var_info['symbol']} is on LHS")
 
     # Generate sample Python script
     print(f"    Generating sample script...")
